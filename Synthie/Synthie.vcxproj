@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdditiveSynth.cpp" />
     <ClCompile Include="AR.cpp" />
     <ClCompile Include="AudioNode.cpp" />
     <ClCompile Include="audio\DirSound.cpp" />
     <ClCompile Include="audio\DirSoundSource.cpp" />
     <ClCompile Include="audio\DirSoundStream.cpp" />
+    <ClCompile Include="Effects.cpp" />
     <ClCompile Include="Instrument.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Note.cpp" />
@@ -152,11 +154,13 @@
     <ClCompile Include="ToneInstrument.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdditiveSynth.h" />
     <ClInclude Include="AR.h" />
     <ClInclude Include="AudioNode.h" />
     <ClInclude Include="audio\DirSound.h" />
     <ClInclude Include="audio\DirSoundSource.h" />
     <ClInclude Include="audio\DirSoundStream.h" />
+    <ClInclude Include="Effects.h" />
     <ClInclude Include="Instrument.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Note.h" />

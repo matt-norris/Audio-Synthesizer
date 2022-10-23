@@ -67,6 +67,10 @@ bool CSynthesizer::Generate(double* frame)
         {
             instrument = new CToneInstrument();
         }
+        else if (note->Instrument() == L"AdditiveSynth")
+        {
+            instrument = new CToneInstrument();
+        }
 
         // Configure the instrument object
         if (instrument != NULL)
