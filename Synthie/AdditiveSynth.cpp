@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "AdditiveSynth.h"
 #include "Notes.h"
+#include <vector>
+#include <sstream>
+
 
 CAdditiveSynth::CAdditiveSynth(void)
 {
@@ -28,9 +31,10 @@ void CAdditiveSynth::Start()
 
 bool CAdditiveSynth::Generate()
 {
+
     // Tell the component to generate an audio sample
     m_sinewave.SetAmplitude(.1);
-    m_sinewave.SetFreq(5294);
+    m_sinewave.SetFreq(1000);
     m_sinewave.Generate();
     bool valid = m_ar.Generate();
 
@@ -42,6 +46,11 @@ bool CAdditiveSynth::Generate()
     m_time += GetSamplePeriod();
 
     // We return true until the time reaches the duration.
+    if (valid == false)
+    {
+        // Clear vector of harmonics when we're done with this sample
+        m_sound_def.clear();
+    }
     return valid;
 }
 
@@ -80,9 +89,28 @@ void CAdditiveSynth::SetNote(CNote* note)
         }
         else if (name == "note")
         {
-           SetFreq(NoteToFrequency(value.bstrVal));
+            // This will be the fundamental fequency
+            SetFreq(NoteToFrequency(value.bstrVal));
         }
-
+        // Get the sound definition here
+        else if (name == "harmonics") 
+        {
+            // Used code adapted from the tutorial here to help me split the harmonic string:
+            // https://www.delftstack.com/howto/cpp/cpp-split-string-by-space/
+            // Convert to regular wstring
+            std::wstring convert_ws(value.bstrVal);
+            // Convert wstring to string
+            std::string convert_s(convert_ws.begin(),convert_ws.end());
+            // Convert string to istringstream
+            std::istringstream sound_def(convert_s);
+            // String value to hold individual amplitudes
+            std::string amp;
+            // Use getline to get each amplitude from sound def
+            while (getline(sound_def, amp, ' '))
+            {
+                // Pushback this harmonics amplitude, as a double, into the sound def vector
+                m_sound_def.push_back(stod(amp));
+            }
+        }
     }
-
 }
