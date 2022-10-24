@@ -29,6 +29,8 @@ void CAdditiveSynth::Start()
 bool CAdditiveSynth::Generate()
 {
     // Tell the component to generate an audio sample
+    m_sinewave.SetAmplitude(.1);
+    m_sinewave.SetFreq(5294);
     m_sinewave.Generate();
     bool valid = m_ar.Generate();
 
@@ -78,7 +80,7 @@ void CAdditiveSynth::SetNote(CNote* note)
         }
         else if (name == "note")
         {
-            SetFreq(NoteToFrequency(value.bstrVal));
+           SetFreq(NoteToFrequency(value.bstrVal));
         }
 
     }

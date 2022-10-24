@@ -2,6 +2,7 @@
 #include "xmlhelp.h"
 #include "Synthesizer.h"
 #include "ToneInstrument.h"
+#include "AdditiveSynth.h"
 #include "AudioNode.h"
 #include <algorithm>
 
@@ -69,7 +70,7 @@ bool CSynthesizer::Generate(double* frame)
         }
         else if (note->Instrument() == L"AdditiveSynth")
         {
-            instrument = new CToneInstrument();
+            instrument = new CAdditiveSynth();
         }
 
         // Configure the instrument object
