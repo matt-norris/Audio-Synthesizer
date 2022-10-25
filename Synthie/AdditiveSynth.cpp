@@ -16,20 +16,19 @@ CAdditiveSynth::~CAdditiveSynth(void)
 
 void CAdditiveSynth::Start()
 {
-    m_time = 0;
 
     // Start the harmonics
-    for (int i = 1; i <= 10; i++) 
+    for (size_t i = 1; i <= 10; i++) 
     {
         // Create harmonic and ar component
         auto current_harmonic = new CSineWave();
         auto ar_comp = new CAR();
+
         // Set parameters, freq and amp
         current_harmonic->SetSampleRate(GetSampleRate());
         current_harmonic->SetFreq(m_freq * i);
-        ar_comp->SetSource(current_harmonic);
-        ar_comp->SetSampleRate(GetSampleRate());
-        ar_comp->SetDuration(m_duration);
+        
+
         // Case #1: Harmonic Undefined, set amp to 0
         if (i > size(m_sound_def)) 
         {
@@ -40,11 +39,18 @@ void CAdditiveSynth::Start()
         {
             current_harmonic->SetAmplitude(m_sound_def[i-1]);
         }
+
         // Start up
         current_harmonic->Start();
+        m_time = 0;
+        ar_comp->SetSource(current_harmonic);
+        ar_comp->SetSampleRate(GetSampleRate());
+        ar_comp->SetDuration(m_duration);
         ar_comp->Start();
-        // Push back pointer to the current harmonic
+
+        // Push back pointer to the current harmonic and it's AR component
         m_harmonics.push_back(*current_harmonic);
+        m_har_AR.push_back(*ar_comp);
     }
 
 }
@@ -54,25 +60,26 @@ bool CAdditiveSynth::Generate()
 {
 
     // Tell the component to generate an audio sample
-    m_sinewave.Generate();
-    bool valid = m_ar.Generate();
+    m_harmonics[0].Generate();
+
+    //bool valid = m_har_AR[0].Generate();
 
     // Read the component's sample and make it our resulting frame.
-    m_frame[0] = m_ar.Frame(0);
-    m_frame[1] = m_ar.Frame(1);
-
-
+    m_frame[0] = m_harmonics[0].Frame(0);
+    m_frame[1] = m_harmonics[0].Frame(1);
 
     // Update time after we've added all the sinusoids together
     m_time += GetSamplePeriod();
-
+    bool valid = m_time >= m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
     // We return true until the time reaches the duration.
-    if (valid == false)
+    if (valid)
     {
-        // Clear vector of harmonics when we're done with this sample
+        // Clear vector of harmonics and sound def when we're done with this sample
         m_sound_def.clear();
+        m_harmonics.clear();
     }
-    return valid;
+
+    return m_time < m_duration* (1.0 / (GetBeatsPerMinute() / 60.0));
 }
 
 void CAdditiveSynth::SetNote(CNote* note)
