@@ -91,7 +91,6 @@ bool CAdditiveSynth::Generate()
         m_harmonics[i].Generate();
         m_frame[0] += m_harmonics[i].Frame(0);
         m_frame[1] += m_harmonics[i].Frame(1);
-
     }
 
 
