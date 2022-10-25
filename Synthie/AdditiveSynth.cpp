@@ -26,28 +26,31 @@ void CAdditiveSynth::Start()
         // Set parameters, freq and amp
         current_harmonic->SetSampleRate(GetSampleRate());
 
-        // Case #1: Harmonic is above nyquist
+        // Case #1A: Harmonic is above nyquist
         if (m_freq * i >= GetSampleRate() / 2) 
         {
             current_harmonic->SetFreq(0);
         }
-        // Case #2: Harmonic is below nyquist
+
+        // Case #2A: Harmonic is below nyquist
         else 
         {
             current_harmonic->SetFreq(m_freq * i);
         }
         
-        // Case #1: Harmonic Undefined, set amp to 0
+        // Case #1B: Harmonic Undefined, set amp to 0
         if (i > size(m_sound_def) && size(m_sound_def) != 0)
         {
             current_harmonic->SetAmplitude(0);
         }
-        // Case #2: Above nyquist, omit this harmonic
+
+        // Case #2B: Above nyquist, omit this harmonic
         else if (m_freq * i >= GetSampleRate() / 2) 
         {
             current_harmonic->SetAmplitude(0);
         }
-        // Case #3: No sound definition, set default amp and 0 for all harmonics
+
+        // Case #3B: No sound definition, set default amp and 0 for all harmonics
         else if (size(m_sound_def) == 0)
         {
             if (i == 1) 
@@ -62,13 +65,14 @@ void CAdditiveSynth::Start()
             }
             
         }
-        // Case #4: Harmonic defined, set amp equal to corresponding amp
+
+        // Case #4B: Harmonic defined, set amp equal to corresponding amp
         else 
         {
             current_harmonic->SetAmplitude(m_sound_def[i - 1]);
         }
 
-        // Start up the current harmonic
+        // Start up the current harmonic, set time to 0
         current_harmonic->Start();
         m_time = 0;
 
@@ -81,6 +85,7 @@ void CAdditiveSynth::Start()
 
 bool CAdditiveSynth::Generate()
 {
+    // Values to total up the sinusoid frames
     double final_frame_1 = 0;
     double final_frame_2 = 0;
 
@@ -92,7 +97,6 @@ bool CAdditiveSynth::Generate()
         final_frame_2 += m_harmonics[i].Frame(1);
     }
  
-   
     // Compute attack/release multiplier
     double gain;
     const double total = m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
@@ -110,7 +114,7 @@ bool CAdditiveSynth::Generate()
         gain = 1;
     }
 
-    // Read the component's sample and make it our resulting frame.
+    // Add up final frame and AR gain, giving us the output frame.
     m_frame[0] = final_frame_1 * gain;
     m_frame[1] = final_frame_2 * gain;
     
@@ -194,7 +198,7 @@ void CAdditiveSynth::SetNote(CNote* note)
                     m_sound_def.push_back(stod(amp));
                     amp.clear();
                 }
-                // Case #3: Space, cle
+                // Case #3: Space, clear amp and pushback current amp to vector 
                 else if (amps_ws[i] == ' ')
                 {
                     // Pushback this harmonics amplitude, as a double, into the sound def vector
@@ -203,7 +207,7 @@ void CAdditiveSynth::SetNote(CNote* note)
                 }
                 
             }
-            // Set the fundamental amplitude from the sound def
+            // Set the fundamental amplitude from the sound def if there is a sound def
             SetAmplitude(m_sound_def[0]);
         }
     }
