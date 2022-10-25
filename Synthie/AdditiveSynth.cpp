@@ -22,10 +22,10 @@ void CAdditiveSynth::Start()
     {
         // Create harmonic and ar component
         auto current_harmonic = new CSineWave();
-        auto ar_comp = new CAR();
 
         // Set parameters, freq and amp
         current_harmonic->SetSampleRate(GetSampleRate());
+
         // Case #1: Harmonic is above nyquist
         if (m_freq * i >= GetSampleRate() / 2) 
         {
@@ -47,36 +47,33 @@ void CAdditiveSynth::Start()
         {
             current_harmonic->SetAmplitude(0);
         }
-        // Case #2: No sound definition, set default amp and 0 for all harmonics
+        // Case #3: No sound definition, set default amp and 0 for all harmonics
         else if (size(m_sound_def) == 0)
         {
             if (i == 1) 
             {
-               current_harmonic->SetAmplitude(0.02);
+               // Default amp is .1
+               current_harmonic->SetAmplitude(0.1);
             }
             else 
             {
+                // No def, then the amp is 0
                 current_harmonic->SetAmplitude(0);
             }
             
         }
-        // Case #2: Harmonic defined, set amp equal to corresponding amp
+        // Case #4: Harmonic defined, set amp equal to corresponding amp
         else 
         {
-            current_harmonic->SetAmplitude(m_sound_def[i-1]);
+            current_harmonic->SetAmplitude(m_sound_def[i - 1]);
         }
 
-        // Start up
+        // Start up the current harmonic
         current_harmonic->Start();
         m_time = 0;
-        ar_comp->SetSource(current_harmonic);
-        ar_comp->SetSampleRate(GetSampleRate());
-        ar_comp->SetDuration(m_duration);
-        ar_comp->Start();
 
-        // Push back pointer to the current harmonic and it's AR component
+        // Push back pointer to the current harmonic into the vector of all harmonics
         m_harmonics.push_back(*current_harmonic);
-        m_har_AR.push_back(*ar_comp);
     }
 
 }
@@ -84,16 +81,17 @@ void CAdditiveSynth::Start()
 
 bool CAdditiveSynth::Generate()
 {
-
-    // Tell the component to generate an audio sample
+    double final_frame_1 = 0;
+    double final_frame_2 = 0;
+    // Generate the sample from all the harmonics, and add them together
     for (size_t i = 0; i <= 19; i++)
     {
         m_harmonics[i].Generate();
-        m_frame[0] += m_harmonics[i].Frame(0);
-        m_frame[1] += m_harmonics[i].Frame(1);
+        final_frame_1 += m_harmonics[i].Frame(0);
+        final_frame_2 += m_harmonics[i].Frame(1);
     }
-
-
+ 
+   
     // Compute attack/release multiplier
     double gain;
     const double total = m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
@@ -112,11 +110,12 @@ bool CAdditiveSynth::Generate()
     }
 
     // Read the component's sample and make it our resulting frame.
-    m_frame[0] = m_frame[0] * gain;
-    m_frame[1] = m_frame[1] * gain;
-
+    m_frame[0] = final_frame_1 * gain;
+    m_frame[1] = final_frame_2 * gain;
+    
     // Update time after we've added all the sinusoids together
     m_time += GetSamplePeriod();
+    // Stop playing once we've reached duration (in terms of beats)
     bool valid = m_time < m_duration* (1.0 / (GetBeatsPerMinute() / 60.0));
 
     // We return true until the time reaches the duration.
@@ -127,7 +126,7 @@ bool CAdditiveSynth::Generate()
         m_harmonics.clear();
     }
 
-    return m_time < m_duration* (1.0 / (GetBeatsPerMinute() / 60.0));
+    return valid;
 }
 
 void CAdditiveSynth::SetNote(CNote* note)
@@ -194,7 +193,7 @@ void CAdditiveSynth::SetNote(CNote* note)
                     m_sound_def.push_back(stod(amp));
                     amp.clear();
                 }
-                // Case #3: Invalid char
+                // Case #3: Space, cle
                 else if (amps_ws[i] == ' ')
                 {
                     // Pushback this harmonics amplitude, as a double, into the sound def vector
