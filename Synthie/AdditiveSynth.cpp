@@ -52,7 +52,7 @@ void CAdditiveSynth::Start()
         {
             if (i == 1) 
             {
-               current_harmonic->SetAmplitude(0.1);
+               current_harmonic->SetAmplitude(0.02);
             }
             else 
             {
