@@ -18,7 +18,7 @@ void CAdditiveSynth::Start()
 {
 
     // Start the harmonics
-    for (size_t i = 1; i <= 10; i++) 
+    for (size_t i = 1; i <= 10; i++)
     {
         // Create harmonic and ar component
         auto current_harmonic = new CSineWave();
@@ -27,12 +27,16 @@ void CAdditiveSynth::Start()
         // Set parameters, freq and amp
         current_harmonic->SetSampleRate(GetSampleRate());
         current_harmonic->SetFreq(m_freq * i);
-        
 
         // Case #1: Harmonic Undefined, set amp to 0
-        if (i > size(m_sound_def)) 
+        if (i > size(m_sound_def) && size(m_sound_def) != 0)
         {
             current_harmonic->SetAmplitude(0);
+        }
+        // Case #2: No sound definition, set default amp
+        if (size(m_sound_def) == 0)
+        {
+            current_harmonic->SetAmplitude(0.1);
         }
         // Case #2: Harmonic defined, set amp equal to corresponding amp
         else 
@@ -62,17 +66,33 @@ bool CAdditiveSynth::Generate()
     // Tell the component to generate an audio sample
     m_harmonics[0].Generate();
 
-    //bool valid = m_har_AR[0].Generate();
+    // Compute attack/release multiplier
+    double gain;
+    const double total = m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
+    auto release = total - .05;
+    if (m_time < .05)
+    {
+        gain = m_time / .05;
+    }
+    else if (m_time >= release)
+    {
+        gain = (total - m_time) / .05;
+    }
+    else
+    {
+        gain = 1;
+    }
 
     // Read the component's sample and make it our resulting frame.
-    m_frame[0] = m_harmonics[0].Frame(0);
-    m_frame[1] = m_harmonics[0].Frame(1);
+    m_frame[0] = m_harmonics[0].Frame(0) * gain;
+    m_frame[1] = m_harmonics[0].Frame(1) * gain;
 
     // Update time after we've added all the sinusoids together
     m_time += GetSamplePeriod();
-    bool valid = m_time >= m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
+    bool valid = m_time < m_duration* (1.0 / (GetBeatsPerMinute() / 60.0));
+
     // We return true until the time reaches the duration.
-    if (valid)
+    if (valid == false)
     {
         // Clear vector of harmonics and sound def when we're done with this sample
         m_sound_def.clear();
