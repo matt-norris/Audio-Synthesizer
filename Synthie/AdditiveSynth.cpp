@@ -17,8 +17,8 @@ CAdditiveSynth::~CAdditiveSynth(void)
 void CAdditiveSynth::Start()
 {
 
-    // Start the harmonics
-    for (size_t i = 1; i <= 10; i++)
+    // Start the harmonics ( defined up to 20)
+    for (size_t i = 1; i <= 20; i++)
     {
         // Create harmonic and ar component
         auto current_harmonic = new CSineWave();
@@ -86,7 +86,7 @@ bool CAdditiveSynth::Generate()
 {
 
     // Tell the component to generate an audio sample
-    for (size_t i = 0; i <= 9; i++)
+    for (size_t i = 0; i <= 19; i++)
     {
         m_harmonics[i].Generate();
         m_frame[0] += m_harmonics[i].Frame(0);
