@@ -26,17 +26,39 @@ void CAdditiveSynth::Start()
 
         // Set parameters, freq and amp
         current_harmonic->SetSampleRate(GetSampleRate());
-        current_harmonic->SetFreq(m_freq * i);
-
+        // Case #1: Harmonic is above nyquist
+        if (m_freq * i >= GetSampleRate() / 2) 
+        {
+            current_harmonic->SetFreq(0);
+        }
+        // Case #2: Harmonic is below nyquist
+        else 
+        {
+            current_harmonic->SetFreq(m_freq * i);
+        }
+        
         // Case #1: Harmonic Undefined, set amp to 0
         if (i > size(m_sound_def) && size(m_sound_def) != 0)
         {
             current_harmonic->SetAmplitude(0);
         }
-        // Case #2: No sound definition, set default amp
+        // Case #2: Above nyquist, omit this harmonic
+        if (m_freq * i >= GetSampleRate() / 2) 
+        {
+            current_harmonic->SetAmplitude(0);
+        }
+        // Case #2: No sound definition, set default amp and 0 for all harmonics
         if (size(m_sound_def) == 0)
         {
-            current_harmonic->SetAmplitude(0.1);
+            if (i == 1) 
+            {
+               current_harmonic->SetAmplitude(0.1);
+            }
+            else 
+            {
+                current_harmonic->SetAmplitude(0);
+            }
+            
         }
         // Case #2: Harmonic defined, set amp equal to corresponding amp
         else 
@@ -64,7 +86,14 @@ bool CAdditiveSynth::Generate()
 {
 
     // Tell the component to generate an audio sample
-    m_harmonics[0].Generate();
+    for (size_t i = 0; i <= 9; i++)
+    {
+        m_harmonics[i].Generate();
+        m_frame[0] += m_harmonics[i].Frame(0);
+        m_frame[1] += m_harmonics[i].Frame(1);
+
+    }
+
 
     // Compute attack/release multiplier
     double gain;
@@ -84,8 +113,8 @@ bool CAdditiveSynth::Generate()
     }
 
     // Read the component's sample and make it our resulting frame.
-    m_frame[0] = m_harmonics[0].Frame(0) * gain;
-    m_frame[1] = m_harmonics[0].Frame(1) * gain;
+    m_frame[0] = m_frame[0] * gain;
+    m_frame[1] = m_frame[1] * gain;
 
     // Update time after we've added all the sinusoids together
     m_time += GetSamplePeriod();
