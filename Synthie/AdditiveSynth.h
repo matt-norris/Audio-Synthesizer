@@ -4,6 +4,7 @@
 #include "SineWave.h"
 #include "AR.h"
 #include <vector>
+using namespace std;
 class CAdditiveSynth :
     public CInstrument
 {

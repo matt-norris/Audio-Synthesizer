@@ -24,8 +24,8 @@ void CAdditiveSynth::Start()
     // the sine wave object.
     m_ar.SetSource(&m_sinewave);
     m_ar.SetSampleRate(GetSampleRate());
-    m_ar.SetDuration(m_duration);
-    m_ar.Start();
+m_ar.SetDuration(m_duration);
+m_ar.Start();
 }
 
 
@@ -33,8 +33,6 @@ bool CAdditiveSynth::Generate()
 {
 
     // Tell the component to generate an audio sample
-    m_sinewave.SetAmplitude(.1);
-    m_sinewave.SetFreq(1000);
     m_sinewave.Generate();
     bool valid = m_ar.Generate();
 
@@ -42,7 +40,30 @@ bool CAdditiveSynth::Generate()
     m_frame[0] = m_ar.Frame(0);
     m_frame[1] = m_ar.Frame(1);
 
-    // Update time
+    // NEED TO loop through vectos
+    // Loop through all harmonics and add them to the frame (up to 10 harmonics)
+    for (int i = 1; i <= 10; i++)
+    {
+        if (i > sizeof(m_sound_def) - 1)
+        {
+            m_sinewave.SetAmplitude(0);
+            m_sinewave.SetFreq(m_sinewave.GetFreq() * i);
+        }
+        else
+        {
+            m_sinewave.SetAmplitude(m_sound_def[i]);
+            m_sinewave.SetFreq(m_sinewave.GetFreq() * i);
+        }
+        m_sinewave.Generate();
+        valid = m_ar.Generate();
+
+        // Read the component's sample and make it our resulting frame.
+        m_frame[0] += m_ar.Frame(0);
+        m_frame[1] += m_ar.Frame(1);
+
+    }
+
+    // Update time after we've added all the sinusoids together
     m_time += GetSamplePeriod();
 
     // We return true until the time reaches the duration.
@@ -92,25 +113,42 @@ void CAdditiveSynth::SetNote(CNote* note)
             // This will be the fundamental fequency
             SetFreq(NoteToFrequency(value.bstrVal));
         }
+
         // Get the sound definition here
-        else if (name == "harmonics") 
+        else if (name == "harmonics")
         {
-            // Used code adapted from the tutorial here to help me split the harmonic string:
-            // https://www.delftstack.com/howto/cpp/cpp-split-string-by-space/
+
             // Convert to regular wstring
-            std::wstring convert_ws(value.bstrVal);
-            // Convert wstring to string
-            std::string convert_s(convert_ws.begin(),convert_ws.end());
-            // Convert string to istringstream
-            std::istringstream sound_def(convert_s);
+            wstring amps_ws = value.bstrVal;
             // String value to hold individual amplitudes
-            std::string amp;
-            // Use getline to get each amplitude from sound def
-            while (getline(sound_def, amp, ' '))
+            wstring amp;
+
+            // Loop and get indiv values
+            for (size_t i = 0; i < size(amps_ws); i++)
             {
-                // Pushback this harmonics amplitude, as a double, into the sound def vector
-                m_sound_def.push_back(stod(amp));
+                // Case #1: Valid Amplitude char
+                if ((amps_ws[i] != ' ') && (i + 1 != size(amps_ws)))
+                {
+                    amp = amp + amps_ws[i];
+                }
+                // Case #2: Last valid char
+                else if (i + 1 == size(amps_ws)) 
+                {
+                    amp = amp + amps_ws[i];
+                    m_sound_def.push_back(stod(amp));
+                    amp.clear();
+                }
+                // Case #3: Invalid char
+                else if (amps_ws[i] == ' ')
+                {
+                    // Pushback this harmonics amplitude, as a double, into the sound def vector
+                    m_sound_def.push_back(stod(amp));
+                    amp.clear();
+                }
+                
             }
+            // Set the fundamental amplitude from the sound def
+            SetAmplitude(m_sound_def[0]);
         }
     }
 }

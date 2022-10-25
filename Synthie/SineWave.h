@@ -16,6 +16,9 @@ public:
     //! Set the sine wave amplitude
     void SetAmplitude(double a) { m_amp = a; }
 
+    //! Set the sine wave frequency
+    double GetFreq() { return m_freq; }
+
     //! Constructor
     CSineWave(void);
 
@@ -25,5 +28,6 @@ private:
     double m_freq;
     double m_amp;
     double m_phase;
+    
 };
 
