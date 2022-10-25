@@ -17,7 +17,7 @@ CAdditiveSynth::~CAdditiveSynth(void)
 void CAdditiveSynth::Start()
 {
 
-    // Start the harmonics ( defined up to 20)
+    // Start the harmonics (defined up to 20 harmonics)
     for (size_t i = 1; i <= 20; i++)
     {
         // Create harmonic and ar component
@@ -83,6 +83,7 @@ bool CAdditiveSynth::Generate()
 {
     double final_frame_1 = 0;
     double final_frame_2 = 0;
+
     // Generate the sample from all the harmonics, and add them together
     for (size_t i = 0; i <= 19; i++)
     {
