@@ -43,12 +43,12 @@ void CAdditiveSynth::Start()
             current_harmonic->SetAmplitude(0);
         }
         // Case #2: Above nyquist, omit this harmonic
-        if (m_freq * i >= GetSampleRate() / 2) 
+        else if (m_freq * i >= GetSampleRate() / 2) 
         {
             current_harmonic->SetAmplitude(0);
         }
         // Case #2: No sound definition, set default amp and 0 for all harmonics
-        if (size(m_sound_def) == 0)
+        else if (size(m_sound_def) == 0)
         {
             if (i == 1) 
             {
