@@ -20,12 +20,16 @@ void CAdditiveSynth::Start()
     m_sinewave.Start();
     m_time = 0;
 
+
+
+
+
     // Tell the AR object it gets its samples from 
     // the sine wave object.
     m_ar.SetSource(&m_sinewave);
     m_ar.SetSampleRate(GetSampleRate());
-m_ar.SetDuration(m_duration);
-m_ar.Start();
+    m_ar.SetDuration(m_duration);
+    m_ar.Start();
 }
 
 
@@ -40,28 +44,7 @@ bool CAdditiveSynth::Generate()
     m_frame[0] = m_ar.Frame(0);
     m_frame[1] = m_ar.Frame(1);
 
-    // NEED TO loop through vectos
-    // Loop through all harmonics and add them to the frame (up to 10 harmonics)
-    for (int i = 1; i <= 10; i++)
-    {
-        if (i > sizeof(m_sound_def) - 1)
-        {
-            m_sinewave.SetAmplitude(0);
-            m_sinewave.SetFreq(m_sinewave.GetFreq() * i);
-        }
-        else
-        {
-            m_sinewave.SetAmplitude(m_sound_def[i]);
-            m_sinewave.SetFreq(m_sinewave.GetFreq() * i);
-        }
-        m_sinewave.Generate();
-        valid = m_ar.Generate();
 
-        // Read the component's sample and make it our resulting frame.
-        m_frame[0] += m_ar.Frame(0);
-        m_frame[1] += m_ar.Frame(1);
-
-    }
 
     // Update time after we've added all the sinusoids together
     m_time += GetSamplePeriod();
