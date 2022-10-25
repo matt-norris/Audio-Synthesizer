@@ -25,9 +25,12 @@ private:
     double m_duration;
     double m_time;
     CAR        m_ar;
+    double m_freq;
     // Vector to hold the sound def, the set of amplitudes
     std::vector<double> m_sound_def;
     // Vector to hold the harmonics
     std::vector<CSineWave> m_harmonics;
+    // Vector to hold the harmonics AR components
+    std::vector<CAR> m_har_AR;
 };
 

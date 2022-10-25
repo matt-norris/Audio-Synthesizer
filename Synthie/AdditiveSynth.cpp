@@ -16,20 +16,37 @@ CAdditiveSynth::~CAdditiveSynth(void)
 
 void CAdditiveSynth::Start()
 {
-    m_sinewave.SetSampleRate(GetSampleRate());
-    m_sinewave.Start();
     m_time = 0;
 
+    // Start the harmonics
+    for (int i = 1; i <= 10; i++) 
+    {
+        // Create harmonic and ar component
+        auto current_harmonic = new CSineWave();
+        auto ar_comp = new CAR();
+        // Set parameters, freq and amp
+        current_harmonic->SetSampleRate(GetSampleRate());
+        current_harmonic->SetFreq(m_freq * i);
+        ar_comp->SetSource(current_harmonic);
+        ar_comp->SetSampleRate(GetSampleRate());
+        ar_comp->SetDuration(m_duration);
+        // Case #1: Harmonic Undefined, set amp to 0
+        if (i > size(m_sound_def)) 
+        {
+            current_harmonic->SetAmplitude(0);
+        }
+        // Case #2: Harmonic defined, set amp equal to corresponding amp
+        else 
+        {
+            current_harmonic->SetAmplitude(m_sound_def[i-1]);
+        }
+        // Start up
+        current_harmonic->Start();
+        ar_comp->Start();
+        // Push back pointer to the current harmonic
+        m_harmonics.push_back(*current_harmonic);
+    }
 
-
-
-
-    // Tell the AR object it gets its samples from 
-    // the sine wave object.
-    m_ar.SetSource(&m_sinewave);
-    m_ar.SetSampleRate(GetSampleRate());
-    m_ar.SetDuration(m_duration);
-    m_ar.Start();
 }
 
 
@@ -95,6 +112,7 @@ void CAdditiveSynth::SetNote(CNote* note)
         {
             // This will be the fundamental fequency
             SetFreq(NoteToFrequency(value.bstrVal));
+            m_freq = NoteToFrequency(value.bstrVal);
         }
 
         // Get the sound definition here
