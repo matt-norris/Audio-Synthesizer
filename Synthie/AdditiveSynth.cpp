@@ -9,6 +9,7 @@ CAdditiveSynth::CAdditiveSynth(void)
 {
     m_duration = 0.1;
     m_sustain = false;
+    m_vibrato = false;
 }
 
 CAdditiveSynth::~CAdditiveSynth(void)
@@ -90,16 +91,23 @@ bool CAdditiveSynth::Generate()
     double final_frame_1 = 0;
     double final_frame_2 = 0;
 
-    // Generate the sample from all the harmonics, and add them together
+    // Generate the sample from all the harmonics, and add the waves together, giving the actual sound that will be played
     for (size_t i = 0; i <= 19; i++)
     {
         m_harmonics[i].Generate();
+        // Add to final frame
         final_frame_1 += m_harmonics[i].Frame(0);
         final_frame_2 += m_harmonics[i].Frame(1);
     }
+
+    // Apply vibrato if sound needs it
+    if (m_vibrato = true) 
+    {
+
+    }
  
     // Compute ADSR multiplier
-    double gain = 1;
+    double adsr_gain = 1;
     const double total = m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
     const auto attack = 0.05;
     const auto release = 0.02;
@@ -107,14 +115,14 @@ bool CAdditiveSynth::Generate()
     // Attack State
     if (m_time < attack)
     {
-        gain = m_time / attack;
+        adsr_gain = m_time / attack;
     }
 
     // Decay State
     else if (m_time > attack && m_sustain == false && m_time < total - release)
     {
-        gain = attack / m_time;
-        if (gain <= .5)
+        adsr_gain = attack / m_time;
+        if (adsr_gain <= .5)
         {
             m_sustain = true;
         }
@@ -123,7 +131,7 @@ bool CAdditiveSynth::Generate()
     // Sustain State
     else if (m_sustain = true && m_time < total - release)
     {
-        gain = 0.5;
+        adsr_gain = 0.5;
     }
 
     // Release State
@@ -132,13 +140,13 @@ bool CAdditiveSynth::Generate()
         // Exit sustain state
         m_sustain = false;
         // Work down from 0.5 to 0
-        gain = ((total - m_time) / .04);
+        adsr_gain = ((total - m_time) / .04);
     }
 
 
-    // Add up final frame and AR gain, giving us the output frame.
-    m_frame[0] = final_frame_1 * gain;
-    m_frame[1] = final_frame_2 * gain;
+    // Add up final frame and ADSR gain, giving us the output frame.
+    m_frame[0] = final_frame_1 * adsr_gain;
+    m_frame[1] = final_frame_2 * adsr_gain;
     
     // Update time after we've added all the sinusoids together
     m_time += GetSamplePeriod();
@@ -151,6 +159,8 @@ bool CAdditiveSynth::Generate()
         // Clear vector of harmonics and sound def when we're done with this sample
         m_sound_def.clear();
         m_harmonics.clear();
+        // Set vibrator back to false when sound is done
+        m_vibrato = false;
     }
 
     return valid;
@@ -231,6 +241,16 @@ void CAdditiveSynth::SetNote(CNote* note)
             }
             // Set the fundamental amplitude from the sound def if there is a sound def
             SetAmplitude(m_sound_def[0]);
+        }
+        // Set vibrato properties if the note needs it
+        else if (name == "vibrato") 
+        {
+            value.ChangeType(VT_R8);
+            // If vibrato is one, turn it on
+            if (value.dblVal == 1.0) 
+            {
+                m_vibrato = true;
+            }
         }
     }
 }

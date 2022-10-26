@@ -27,6 +27,7 @@ private:
     double m_time;
     double m_freq;
     bool m_sustain;
+    bool m_vibrato;
     // Vector to hold the sound def, the set of amplitudes
     std::vector<double> m_sound_def;
     // Vector to hold the harmonics
