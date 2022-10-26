@@ -8,6 +8,7 @@
 CAdditiveSynth::CAdditiveSynth(void)
 {
     m_duration = 0.1;
+    m_sustain = false;
 }
 
 CAdditiveSynth::~CAdditiveSynth(void)
@@ -97,22 +98,42 @@ bool CAdditiveSynth::Generate()
         final_frame_2 += m_harmonics[i].Frame(1);
     }
  
-    // Compute attack/release multiplier
-    double gain;
+    // Compute ADSR multiplier
+    double gain = 1;
     const double total = m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
-    auto release = total - .05;
-    if (m_time < .05)
+    const auto attack = 0.05;
+    const auto release = 0.02;
+    
+
+    // Attack
+    if (m_time < attack)
     {
-        gain = m_time / .05;
+        gain = m_time / attack;
     }
-    else if (m_time >= release)
+
+    // Decay
+    else if (m_time > attack && m_sustain == false && m_time < total - release)
     {
-        gain = (total - m_time) / .05;
+        gain = attack / m_time;
+        if (gain <= .5)
+        {
+            m_sustain = true;
+        }
     }
-    else
+
+    // Sustain
+    else if (m_sustain = true && m_time < total - release)
     {
-        gain = 1;
+        gain = 0.5;
     }
+
+    // Release
+    else if (m_time >= total - release)
+    {
+        m_sustain = false;
+        gain = ((total - m_time) / .04);
+    }
+
 
     // Add up final frame and AR gain, giving us the output frame.
     m_frame[0] = final_frame_1 * gain;
