@@ -17,7 +17,7 @@ public:
     void SetFreq(double f) { m_sinewave.SetFreq(f); }
     void SetAmplitude(double a) { m_sinewave.SetAmplitude(a); }
     void SetDuration(double d) { m_duration = d; }
-
+    void SetVibrato(bool v) { m_vibrato = v; }
     CAdditiveSynth(void);
     ~CAdditiveSynth(void);
 

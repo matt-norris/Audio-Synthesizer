@@ -88,25 +88,27 @@ void CAdditiveSynth::Start()
 bool CAdditiveSynth::Generate()
 {
     // Values to total up the sinusoid frames
+    double final_frame_0 = 0;
     double final_frame_1 = 0;
-    double final_frame_2 = 0;
 
     // Generate the sample from all the harmonics, and add the waves together, giving the actual sound that will be played
     for (size_t i = 0; i <= 19; i++)
     {
         m_harmonics[i].Generate();
         // Add to final frame
-        final_frame_1 += m_harmonics[i].Frame(0);
-        final_frame_2 += m_harmonics[i].Frame(1);
+        final_frame_0 += m_harmonics[i].Frame(0);
+        final_frame_1 += m_harmonics[i].Frame(1);
     }
 
-    // Apply vibrato if sound needs it
-    if (m_vibrato = true) 
+    // Apply vibrato multiplier to frame if sound needs it
+    if (m_vibrato == true) 
     {
-
+        double vib =  1;
+        final_frame_0 = final_frame_0 * vib;
+        final_frame_1 = final_frame_1 * vib;
     }
- 
-    // Compute ADSR multiplier
+
+    // Apply ADSR multiplier
     double adsr_gain = 1;
     const double total = m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
     const auto attack = 0.05;
@@ -145,8 +147,8 @@ bool CAdditiveSynth::Generate()
 
 
     // Add up final frame and ADSR gain, giving us the output frame.
-    m_frame[0] = final_frame_1 * adsr_gain;
-    m_frame[1] = final_frame_2 * adsr_gain;
+    m_frame[0] = final_frame_0 * adsr_gain;
+    m_frame[1] = final_frame_1 * adsr_gain;
     
     // Update time after we've added all the sinusoids together
     m_time += GetSamplePeriod();
@@ -159,7 +161,7 @@ bool CAdditiveSynth::Generate()
         // Clear vector of harmonics and sound def when we're done with this sample
         m_sound_def.clear();
         m_harmonics.clear();
-        // Set vibrator back to false when sound is done
+        // Set vibrato back to false when sound is done
         m_vibrato = false;
     }
 
@@ -249,7 +251,12 @@ void CAdditiveSynth::SetNote(CNote* note)
             // If vibrato is one, turn it on
             if (value.dblVal == 1.0) 
             {
-                m_vibrato = true;
+                SetVibrato(true);
+            }
+            // Any other value set to false
+            else
+            {
+                SetVibrato(false);
             }
         }
     }
