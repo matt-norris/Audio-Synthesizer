@@ -104,14 +104,13 @@ bool CAdditiveSynth::Generate()
     const auto attack = 0.05;
     const auto release = 0.02;
     
-
-    // Attack
+    // Attack State
     if (m_time < attack)
     {
         gain = m_time / attack;
     }
 
-    // Decay
+    // Decay State
     else if (m_time > attack && m_sustain == false && m_time < total - release)
     {
         gain = attack / m_time;
@@ -121,16 +120,18 @@ bool CAdditiveSynth::Generate()
         }
     }
 
-    // Sustain
+    // Sustain State
     else if (m_sustain = true && m_time < total - release)
     {
         gain = 0.5;
     }
 
-    // Release
+    // Release State
     else if (m_time >= total - release)
     {
+        // Exit sustain state
         m_sustain = false;
+        // Work down from 0.5 to 0
         gain = ((total - m_time) / .04);
     }
 
