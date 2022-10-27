@@ -5,7 +5,7 @@
 #include "AdditiveSynth.h"
 #include "AudioNode.h"
 #include <algorithm>
-
+#include "Flanger.h"
 CSynthesizer::CSynthesizer(void) 
 {
     CoInitialize(NULL);

@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 #include "Note.h"
+#include "Flanger.h"
+
 using namespace std;
 class CSynthesizer
 {
@@ -60,6 +62,7 @@ private:
     int m_currentNote;          //!< The current note we are playing
     int m_measure;              //!< The current measure
     double m_beat;              //!< The current beat within the measure
+    CFlanger m_flanger;
 };
 
 #pragma comment(lib, "msxml2.lib")

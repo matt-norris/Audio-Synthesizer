@@ -134,6 +134,7 @@
     <ClCompile Include="audio\DirSoundSource.cpp" />
     <ClCompile Include="audio\DirSoundStream.cpp" />
     <ClCompile Include="Effects.cpp" />
+    <ClCompile Include="Flanger.cpp" />
     <ClCompile Include="Instrument.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Note.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="audio\DirSoundSource.h" />
     <ClInclude Include="audio\DirSoundStream.h" />
     <ClInclude Include="Effects.h" />
+    <ClInclude Include="Flanger.h" />
     <ClInclude Include="Instrument.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Note.h" />
