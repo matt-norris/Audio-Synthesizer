@@ -3,6 +3,7 @@
 
 void CFlanger::Start()
 {
+
 }
 
 bool CFlanger::Generate()
@@ -10,10 +11,13 @@ bool CFlanger::Generate()
 	return false;
 }
 
+
 CFlanger::CFlanger(void)
 {
+
 }
 
 CFlanger::~CFlanger(void)
 {
+
 }

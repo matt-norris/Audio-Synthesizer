@@ -12,8 +12,8 @@ CAdditiveSynth::CAdditiveSynth(void)
     m_sustain = false;
     m_vibrato_on = false;
 
-    // Default vibrato has a depth of .3 and freq of 6 hz
-    m_vibrato_depth = .3;
+    // Default vibrato has a depth of 10% and freq of 6 hz
+    m_vibrato_depth = 10;
     m_vibrato_freq = 6;
 }
 
@@ -42,7 +42,9 @@ void CAdditiveSynth::Start()
         // Case #2A: Harmonic is below nyquist
         else 
         {
-            current_harmonic->SetFreq(500);
+            current_harmonic->SetFreq(m_freq * i);
+
+            current_harmonic->SetFundamentalFreq(m_freq * i);
         }
         
         // Case #1B: Harmonic Undefined, set amp to 0
@@ -99,18 +101,17 @@ bool CAdditiveSynth::Generate()
     // Generate the sample from all the harmonics, and add the waves together, giving the actual sound that will be played
     for (size_t i = 0; i <= 19; i++)
     {
+        // Apply vibrato effect to sound if it needs it
+        if (m_vibrato_on == true)
+        {
+            double vib = m_vibrato_depth * sin(m_vibrato_freq * 2 * PI * m_time);
+            m_harmonics[i].SetFreq(m_harmonics[i].GetFundamentalFreq() + vib);
+        }
+
         m_harmonics[i].Generate();
         // Add to final frame
-        final_frame_0 += m_harmonics[i].Frame(0) ;
+        final_frame_0 += m_harmonics[i].Frame(0);
         final_frame_1 += m_harmonics[i].Frame(1);
-    }
-
-    // Apply vibrato effect to sound if it needs it
-    if (m_vibrato_on == true) 
-    {
-        double vib = 1 + m_vibrato_depth * sin(m_vibrato_freq * 2 * PI * m_time);
-        final_frame_0 = final_frame_0 * vib;
-        final_frame_1 = final_frame_1 * vib;
     }
 
     // Apply ADSR multiplier

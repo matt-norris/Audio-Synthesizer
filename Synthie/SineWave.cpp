@@ -6,6 +6,7 @@ CSineWave::CSineWave(void)
 	m_phase = 0;
 	m_amp = 0.1;
 	m_freq = 440;
+    m_fundamental_freq = 440;
 }
 
 CSineWave::~CSineWave(void)
