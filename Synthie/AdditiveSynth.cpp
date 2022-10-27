@@ -15,6 +15,7 @@ CAdditiveSynth::CAdditiveSynth(void)
     // Default vibrato has a depth of 10% and freq of 6 hz
     m_vibrato_depth = 10;
     m_vibrato_freq = 6;
+    m_crossfading = false;
 }
 
 CAdditiveSynth::~CAdditiveSynth(void)
@@ -89,6 +90,12 @@ void CAdditiveSynth::Start()
         m_harmonics.push_back(*current_harmonic);
     }
 
+    // Set up crossfade harmonics if we need to
+    if (m_crossfading == true)
+    {
+        StartCrossfade(m_crossfade_harmonics);
+    }
+    
 }
 
 
@@ -106,6 +113,17 @@ bool CAdditiveSynth::Generate()
         {
             double vib = m_vibrato_depth * sin(m_vibrato_freq * 2 * PI * m_time);
             m_harmonics[i].SetFreq(m_harmonics[i].GetFundamentalFreq() + vib);
+            // If note needs crossfading and vibrato, add it to those harmonics as well
+            if (m_crossfading == true)
+            {
+                m_crossfade_harmonics[i].SetFreq(m_crossfade_harmonics[i].GetFundamentalFreq() + vib);
+            }
+        }
+
+        // Apply crossfading if the sound requires it
+        if (m_crossfading == true) 
+        {
+            m_crossfade_harmonics[i].Generate();
         }
 
         m_harmonics[i].Generate();
@@ -172,6 +190,76 @@ bool CAdditiveSynth::Generate()
     }
 
     return valid;
+}
+
+void CAdditiveSynth::StartCrossfade(std::vector<CSineWave> crossfade_harmonics)
+{
+
+    // Start the crossfade harmonics (defined up to 20 harmonics)
+    for (size_t i = 1; i <= 20; i++)
+    {
+        // Create harmonic and ar component
+        auto current_harmonic = new CSineWave();
+
+        // Set parameters, freq and amp
+        current_harmonic->SetSampleRate(GetSampleRate());
+
+        // Case #1A: Harmonic is above nyquist
+        if (m_freq * i >= GetSampleRate() / 2)
+        {
+            current_harmonic->SetFreq(0);
+        }
+
+        // Case #2A: Harmonic is below nyquist
+        else
+        {
+            current_harmonic->SetFreq(m_freq * i);
+
+            current_harmonic->SetFundamentalFreq(m_freq * i);
+        }
+
+        // Case #1B: Harmonic Undefined, set amp to 0
+        if (i > size(m_sound_def_cross) && size(m_sound_def_cross) != 0)
+        {
+            current_harmonic->SetAmplitude(0);
+        }
+
+        // Case #2B: Above nyquist, omit this harmonic
+        else if (m_freq * i >= GetSampleRate() / 2)
+        {
+            current_harmonic->SetAmplitude(0);
+        }
+
+        // Case #3B: No sound definition, set default amp and 0 for all harmonics
+        else if (size(m_sound_def_cross) == 0)
+        {
+            if (i == 1)
+            {
+                // Default amp is .1
+                current_harmonic->SetAmplitude(0.1);
+            }
+            else
+            {
+                // No def, then the amp is 0
+                current_harmonic->SetAmplitude(0);
+            }
+
+        }
+
+        // Case #4B: Harmonic defined, set amp equal to corresponding amp
+        else
+        {
+            current_harmonic->SetAmplitude(m_sound_def_cross[i - 1]);
+        }
+
+        // Start up the current harmonic, set time to 0
+        current_harmonic->Start();
+        m_time = 0;
+
+        // Push back pointer to the current harmonic into the vector of all harmonics
+        m_crossfade_harmonics.push_back(*current_harmonic);
+    }
+
 }
 
 void CAdditiveSynth::SetNote(CNote* note)
@@ -263,6 +351,41 @@ void CAdditiveSynth::SetNote(CNote* note)
             else
             {
                 SetVibratoOn(false);
+            }
+        }
+        // Set up crossfade sound if note needs it
+        else if (name == "crossfade")
+        {
+            m_crossfading = true;
+            // Set up vector of amplitudes
+             // Convert to regular wstring
+            wstring amps_ws = value.bstrVal;
+            // String value to hold individual amplitudes
+            wstring amp;
+
+            // Loop and get indiv values
+            for (size_t i = 0; i < size(amps_ws); i++)
+            {
+                // Case #1: Valid Amplitude char
+                if ((amps_ws[i] != ' ') && (i + 1 != size(amps_ws)))
+                {
+                    amp = amp + amps_ws[i];
+                }
+                // Case #2: Last valid char
+                else if (i + 1 == size(amps_ws))
+                {
+                    amp = amp + amps_ws[i];
+                    m_sound_def_cross.push_back(stod(amp));
+                    amp.clear();
+                }
+                // Case #3: Space, clear amp and pushback current amp to vector 
+                else if (amps_ws[i] == ' ')
+                {
+                    // Pushback this harmonics amplitude, as a double, into the sound def vector
+                    m_sound_def_cross.push_back(stod(amp));
+                    amp.clear();
+                }
+
             }
         }
     }
