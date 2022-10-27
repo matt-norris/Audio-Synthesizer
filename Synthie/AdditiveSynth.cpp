@@ -11,9 +11,9 @@ CAdditiveSynth::CAdditiveSynth(void)
     m_duration = 0.1;
     m_sustain = false;
     m_vibrato_on = false;
-    // Default vibrato has a depth of .2 and freq of 20 hz
+    // Default vibrato has a depth of .2 and freq of 10 hz
     m_vibrato_depth = .2;
-    m_vibrato_freq = 20;
+    m_vibrato_freq = 10;
 }
 
 CAdditiveSynth::~CAdditiveSynth(void)
