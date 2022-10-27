@@ -12,9 +12,9 @@ CAdditiveSynth::CAdditiveSynth(void)
     m_sustain = false;
     m_vibrato_on = false;
 
-    // Default vibrato has a depth of .5 and freq of 5 hz
-    m_vibrato_depth = .5;
-    m_vibrato_freq = 5;
+    // Default vibrato has a depth of .3 and freq of 6 hz
+    m_vibrato_depth = .3;
+    m_vibrato_freq = 6;
 }
 
 CAdditiveSynth::~CAdditiveSynth(void)
@@ -42,7 +42,7 @@ void CAdditiveSynth::Start()
         // Case #2A: Harmonic is below nyquist
         else 
         {
-            current_harmonic->SetFreq(m_freq * i);
+            current_harmonic->SetFreq(500);
         }
         
         // Case #1B: Harmonic Undefined, set amp to 0
