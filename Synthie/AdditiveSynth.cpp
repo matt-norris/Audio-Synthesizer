@@ -3,13 +3,17 @@
 #include "Notes.h"
 #include <vector>
 #include <sstream>
+#include <math.h>
 
 
 CAdditiveSynth::CAdditiveSynth(void)
 {
     m_duration = 0.1;
     m_sustain = false;
-    m_vibrato = false;
+    m_vibrato_on = false;
+    // Default vibrato has a depth of .2 and freq of 20 hz
+    m_vibrato_depth = .2;
+    m_vibrato_freq = 20;
 }
 
 CAdditiveSynth::~CAdditiveSynth(void)
@@ -96,14 +100,14 @@ bool CAdditiveSynth::Generate()
     {
         m_harmonics[i].Generate();
         // Add to final frame
-        final_frame_0 += m_harmonics[i].Frame(0);
+        final_frame_0 += m_harmonics[i].Frame(0) ;
         final_frame_1 += m_harmonics[i].Frame(1);
     }
 
-    // Apply vibrato multiplier to frame if sound needs it
-    if (m_vibrato == true) 
+    // Apply vibrato effect to sound if it needs it
+    if (m_vibrato_on == true) 
     {
-        double vib =  1;
+        double vib = 1 + m_vibrato_depth * sin(m_vibrato_freq * 2 * PI * m_time);
         final_frame_0 = final_frame_0 * vib;
         final_frame_1 = final_frame_1 * vib;
     }
@@ -162,7 +166,7 @@ bool CAdditiveSynth::Generate()
         m_sound_def.clear();
         m_harmonics.clear();
         // Set vibrato back to false when sound is done
-        m_vibrato = false;
+        m_vibrato_on = false;
     }
 
     return valid;
@@ -251,12 +255,12 @@ void CAdditiveSynth::SetNote(CNote* note)
             // If vibrato is one, turn it on
             if (value.dblVal == 1.0) 
             {
-                SetVibrato(true);
+                SetVibratoOn(true);
             }
             // Any other value set to false
             else
             {
-                SetVibrato(false);
+                SetVibratoOn(false);
             }
         }
     }

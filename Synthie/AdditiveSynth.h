@@ -17,7 +17,7 @@ public:
     void SetFreq(double f) { m_sinewave.SetFreq(f); }
     void SetAmplitude(double a) { m_sinewave.SetAmplitude(a); }
     void SetDuration(double d) { m_duration = d; }
-    void SetVibrato(bool v) { m_vibrato = v; }
+    void SetVibratoOn(bool v) { m_vibrato_on = v; }
     CAdditiveSynth(void);
     ~CAdditiveSynth(void);
 
@@ -27,7 +27,9 @@ private:
     double m_time;
     double m_freq;
     bool m_sustain;
-    bool m_vibrato;
+    bool m_vibrato_on;
+    double m_vibrato_depth;
+    double m_vibrato_freq;
     // Vector to hold the sound def, the set of amplitudes
     std::vector<double> m_sound_def;
     // Vector to hold the harmonics
