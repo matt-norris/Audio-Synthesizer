@@ -6,6 +6,7 @@
 #include "AudioNode.h"
 #include <algorithm>
 #include "Flanger.h"
+
 CSynthesizer::CSynthesizer(void) 
 {
     CoInitialize(NULL);
@@ -137,6 +138,18 @@ bool CSynthesizer::Generate(double* frame)
             // from the list and delete it from memory.
             m_instruments.erase(node);
             delete instrument;
+        }
+
+        //
+        // Phase 3a: Effects
+        //
+
+        double eframe[2];
+        m_flanger.Process(frame, eframe);
+
+        for (int c = 0; c < 2; c++)
+        {
+            frame[c] = eframe[c];
         }
 
         // Move to the next instrument in the list

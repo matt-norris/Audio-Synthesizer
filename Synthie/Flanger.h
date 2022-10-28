@@ -18,6 +18,10 @@ public:
     CFlanger(void);
 
     virtual ~CFlanger(void);
+
+    void SetWet(double w) { m_wet = w; }
     
+private:
+    double m_wet;
 };
 
