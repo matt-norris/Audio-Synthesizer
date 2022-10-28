@@ -52,12 +52,14 @@ void CAdditiveSynth::Start()
         if (i > size(m_sound_def) && size(m_sound_def) != 0)
         {
             current_harmonic->SetAmplitude(0);
+            current_harmonic->SetFundamentalAmplitude(0);
         }
 
         // Case #2B: Above nyquist, omit this harmonic
         else if (m_freq * i >= GetSampleRate() / 2) 
         {
             current_harmonic->SetAmplitude(0);
+            current_harmonic->SetFundamentalAmplitude(0);
         }
 
         // Case #3B: No sound definition, set default amp and 0 for all harmonics
@@ -67,11 +69,13 @@ void CAdditiveSynth::Start()
             {
                // Default amp is .1
                current_harmonic->SetAmplitude(0.1);
+               current_harmonic->SetFundamentalAmplitude(0.1);
             }
             else 
             {
                 // No def, then the amp is 0
                 current_harmonic->SetAmplitude(0);
+                current_harmonic->SetFundamentalAmplitude(0);
             }
             
         }
@@ -80,6 +84,7 @@ void CAdditiveSynth::Start()
         else 
         {
             current_harmonic->SetAmplitude(m_sound_def[i - 1]);
+            current_harmonic->SetFundamentalAmplitude(m_sound_def[i - 1]);
         }
 
         // Start up the current harmonic, set time to 0
@@ -104,6 +109,7 @@ bool CAdditiveSynth::Generate()
     // Values to total up the sinusoid frames
     double final_frame_0 = 0;
     double final_frame_1 = 0;
+    const double total = m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
 
     // Generate the sample from all the harmonics, and add the waves together, giving the actual sound that will be played
     for (size_t i = 0; i <= 19; i++)
@@ -111,8 +117,10 @@ bool CAdditiveSynth::Generate()
         // Apply vibrato effect to sound if it needs it
         if (m_vibrato_on == true)
         {
+            // Set up vibrato for this generation
             double vib = m_vibrato_depth * sin(m_vibrato_freq * 2 * PI * m_time);
             m_harmonics[i].SetFreq(m_harmonics[i].GetFundamentalFreq() + vib);
+
             // If note needs crossfading and vibrato, add it to those harmonics as well
             if (m_crossfading == true)
             {
@@ -121,20 +129,40 @@ bool CAdditiveSynth::Generate()
         }
 
         // Apply crossfading if the sound requires it
-        if (m_crossfading == true) 
+        if (m_crossfading == true)
         {
+            // Adjust amplitudes according to duration, weights should total to 1
+            m_harmonics[i].SetAmplitude(m_harmonics[i].GetFundamentalAmplitude() * ((total - m_time) / total));
+            m_crossfade_harmonics[i].SetAmplitude(m_crossfade_harmonics[i].GetFundamentalAmplitude() * (m_time / total));
+
+            // Generate crossfade
             m_crossfade_harmonics[i].Generate();
         }
 
+        // Generate sample from this harmonic
         m_harmonics[i].Generate();
-        // Add to final frame
-        final_frame_0 += m_harmonics[i].Frame(0);
-        final_frame_1 += m_harmonics[i].Frame(1);
+
+        // Crossfade final frame
+        if (m_crossfading == true)
+        {
+            // Add both samples to frame
+            final_frame_0 += m_harmonics[i].Frame(0) + m_crossfade_harmonics[i].Frame(0);
+            final_frame_1 += m_harmonics[i].Frame(1) + m_crossfade_harmonics[i].Frame(1);
+        }
+
+        // No crossfade
+        else
+        {
+
+            // Add to final frame
+            final_frame_0 += m_harmonics[i].Frame(0);
+            final_frame_1 += m_harmonics[i].Frame(1);
+
+        }
     }
 
     // Apply ADSR multiplier
     double adsr_gain = 1;
-    const double total = m_duration * (1.0 / (GetBeatsPerMinute() / 60.0));
     const auto attack = 0.05;
     const auto release = 0.02;
     
@@ -187,6 +215,8 @@ bool CAdditiveSynth::Generate()
         m_harmonics.clear();
         // Set vibrato back to false when sound is done
         m_vibrato_on = false;
+        // Set crossfade back to false when sound is done
+        m_crossfading = false;
     }
 
     return valid;
@@ -222,12 +252,14 @@ void CAdditiveSynth::StartCrossfade(std::vector<CSineWave> crossfade_harmonics)
         if (i > size(m_sound_def_cross) && size(m_sound_def_cross) != 0)
         {
             current_harmonic->SetAmplitude(0);
+            current_harmonic->SetFundamentalAmplitude(0);
         }
 
         // Case #2B: Above nyquist, omit this harmonic
         else if (m_freq * i >= GetSampleRate() / 2)
         {
             current_harmonic->SetAmplitude(0);
+            current_harmonic->SetFundamentalAmplitude(0);
         }
 
         // Case #3B: No sound definition, set default amp and 0 for all harmonics
@@ -237,11 +269,13 @@ void CAdditiveSynth::StartCrossfade(std::vector<CSineWave> crossfade_harmonics)
             {
                 // Default amp is .1
                 current_harmonic->SetAmplitude(0.1);
+                current_harmonic->SetFundamentalAmplitude(0.1);
             }
             else
             {
                 // No def, then the amp is 0
                 current_harmonic->SetAmplitude(0);
+                current_harmonic->SetFundamentalAmplitude(0);
             }
 
         }
@@ -250,6 +284,7 @@ void CAdditiveSynth::StartCrossfade(std::vector<CSineWave> crossfade_harmonics)
         else
         {
             current_harmonic->SetAmplitude(m_sound_def_cross[i - 1]);
+            current_harmonic->SetFundamentalAmplitude(m_sound_def_cross[i - 1]);
         }
 
         // Start up the current harmonic, set time to 0
