@@ -1,14 +1,9 @@
 #include "pch.h"
 #include "Flanger.h"
 
-void CFlanger::Start()
-{
 
-}
-
-bool CFlanger::Generate()
+void CFlanger::SetNote(CNote* note)
 {
-	return false;
 }
 
 void CFlanger::Process(double* frameIn, double* frameOut)
