@@ -213,6 +213,7 @@ bool CAdditiveSynth::Generate()
         // Clear vector of harmonics and sound def when we're done with this sample
         m_sound_def.clear();
         m_harmonics.clear();
+
         // Set vibrato back to false when sound is done
         m_vibrato_on = false;
         // Set crossfade back to false when sound is done
@@ -228,6 +229,7 @@ void CAdditiveSynth::StartCrossfade(std::vector<CSineWave> crossfade_harmonics)
     // Start the crossfade harmonics (defined up to 20 harmonics)
     for (size_t i = 1; i <= 20; i++)
     {
+        
         // Create harmonic and ar component
         auto current_harmonic = new CSineWave();
 
@@ -330,11 +332,47 @@ void CAdditiveSynth::SetNote(CNote* note)
             value.ChangeType(VT_R8);
             SetDuration(value.dblVal);
         }
+
         else if (name == "note")
         {
+            // Convert to regular wstring
+            wstring notes_ws = value.bstrVal;
+            // String value to hold individual amplitudes
+            wstring note;
+            // Total frequency
+            double total_freq = 0;
+            // Current frequency
+            double current_freq = 0;
+
+            // Loop and get indiv values
+            for (size_t i = 0; i < size(notes_ws); i++)
+            {
+                // Case #1: Valid Note char
+                if ((notes_ws[i] != ' ') && (i + 1 != size(notes_ws)))
+                {
+                    note = note + notes_ws[i];
+                }
+                // Case #2: Last valid char
+                else if (i + 1 == size(notes_ws))
+                {
+                    note = note + notes_ws[i];
+                    current_freq = NoteToFrequency(note.data());
+                    total_freq += current_freq;
+                    note.clear();
+                }
+                // Case #3: Space, clear amp and pushback current amp to vector 
+                else if (notes_ws[i] == ' ')
+                {
+                    // Pushback this harmonics amplitude, as a double, into the sound def vector
+                    current_freq = NoteToFrequency(note.data());
+                    total_freq += current_freq;
+                    note.clear();
+                }
+
+            }
             // This will be the fundamental fequency
-            SetFreq(NoteToFrequency(value.bstrVal));
-            m_freq = NoteToFrequency(value.bstrVal);
+            m_freq = total_freq;
+            SetFreq(m_freq);
         }
 
         // Get the sound definition here
@@ -373,6 +411,7 @@ void CAdditiveSynth::SetNote(CNote* note)
             // Set the fundamental amplitude from the sound def if there is a sound def
             SetAmplitude(m_sound_def[0]);
         }
+
         // Set vibrato properties if the note needs it
         else if (name == "vibrato") 
         {
@@ -388,6 +427,7 @@ void CAdditiveSynth::SetNote(CNote* note)
                 SetVibratoOn(false);
             }
         }
+
         // Set up crossfade sound if note needs it
         else if (name == "crossfade")
         {
