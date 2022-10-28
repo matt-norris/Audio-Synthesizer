@@ -6,5 +6,6 @@ class CEffects :
 public:
     CEffects(void);
     virtual ~CEffects(void);
+    virtual void Process(double* frameIn, double* frameOut) = 0;
 };
 
