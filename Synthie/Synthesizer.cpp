@@ -72,6 +72,10 @@ bool CSynthesizer::Generate(double* frame)
         {
             instrument = new CAdditiveSynth();
         }
+        else if (note->Instrument() == L"Flanger")
+        {
+            m_flanger.SetNote(note);
+        }
 
         // Configure the instrument object
         if (instrument != NULL)
