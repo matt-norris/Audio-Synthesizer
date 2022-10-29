@@ -1,8 +1,7 @@
 #include "pch.h"
-#include "Flanger.h"
+#include "NoiseGate.h"
 
-
-void CFlanger::SetNote(CNote* note)
+void CNoiseGate::SetNote(CNote* note)
 {
     // Get a list of all attribute nodes and the
     // length of that list
@@ -30,52 +29,43 @@ void CFlanger::SetNote(CNote* note)
         CComVariant value;
         attrib->get_nodeValue(&value);
 
-        if (name == "wet")
+        if (name == "threshold")
         {
             value.ChangeType(VT_R8);
-            SetWet(value.dblVal);
+            m_threshold = value.dblVal;
+
         }
 
     }
-   
 }
 
-void CFlanger::Process(double* frameIn, double* frameOut)
+void CNoiseGate::Process(double* frameIn, double* frameOut)
 {
 
-
-        m_wrloc = (m_wrloc + 1) % QUEUESIZE;
-
-        m_queue[m_wrloc] = frameIn[0];
-
-        int delaylength = int(m_delay * GetSampleRate() + 0.5);
-        m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;  
-
-        // Loop over the channels
-        for (int c = 0; c < 2; c++)
+    // Loop over the channels
+    for (int c = 0; c < 2; c++)
+    {
+        // If the frame is less than the threshold, attenuate the frame
+        if (frameIn[c] > m_threshold) 
         {
             // Add output of the queue to the current input
-            frameOut[c] = frameIn[c] + m_queue[m_wrloc-1];
+            frameOut[c] = frameIn[c] * .2;
+        }
+        else 
+        {
+            // Add output of the queue to the current input
+            frameOut[c] = frameIn[c];
         }
 
-    // Sweep delay for flanger effect
- 
-    
-
+    }
 }
 
-
-CFlanger::CFlanger(void)
+CNoiseGate::CNoiseGate(void)
 {
-    m_queue.resize(QUEUESIZE);
-    m_wrloc = 0;
-    m_rdloc = 1;
-    m_x = .001;
-    
+    m_threshold = 9000;
 }
 
-CFlanger::~CFlanger(void)
+CNoiseGate::~CNoiseGate(void)
 {
 
 }
-

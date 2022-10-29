@@ -7,6 +7,7 @@
 #include "Note.h"
 #include "Flanger.h"
 #include "Compression.h"
+#include "NoiseGate.h"
 using namespace std;
 class CSynthesizer
 {
@@ -64,6 +65,7 @@ private:
     double m_beat;              //!< The current beat within the measure
     CFlanger m_flanger;
     CCompression m_compression;
+    CNoiseGate m_noisegate;
 };
 
 #pragma comment(lib, "msxml2.lib")

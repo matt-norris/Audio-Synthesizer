@@ -428,6 +428,20 @@ void CAdditiveSynth::SetNote(CNote* note)
             }
         }
 
+        // Set vibrato properties if the note needs it
+        else if (name == "vib_depth")
+        {
+            value.ChangeType(VT_R8);
+            m_vibrato_depth = value.dblVal;
+        }
+
+        // Set vibrato properties if the note needs it
+        else if (name == "vib_freq")
+        {
+            value.ChangeType(VT_R8);
+            m_vibrato_freq = value.dblVal;
+        }
+
         // Set up crossfade sound if note needs it
         else if (name == "crossfade")
         {

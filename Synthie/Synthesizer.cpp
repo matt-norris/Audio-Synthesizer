@@ -81,6 +81,10 @@ bool CSynthesizer::Generate(double* frame)
         {
             m_compression.SetNote(note);
         }
+        else if (note->Instrument() == L"NoiseGate")
+        {
+            m_noisegate.SetNote(note);
+        }
 
         // Configure the instrument object
         if (instrument != NULL)
@@ -145,7 +149,7 @@ bool CSynthesizer::Generate(double* frame)
         }
 
         //
-        // Phase 3a: Effects
+        // Phase 3a: Effects in series
         //
 
         double fframe[2];
@@ -154,9 +158,12 @@ bool CSynthesizer::Generate(double* frame)
         double cframe[2];
         m_compression.Process(fframe, cframe);
 
+        double nframe[2];
+        m_noisegate.Process(cframe, nframe);
+
         for (int c = 0; c < 2; c++)
         {
-            frame[c] = cframe[c];
+            frame[c] = nframe[c];
         }
 
         // Move to the next instrument in the list
