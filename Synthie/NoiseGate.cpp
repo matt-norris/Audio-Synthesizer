@@ -46,7 +46,7 @@ void CNoiseGate::Process(double* frameIn, double* frameOut)
     for (int c = 0; c < 2; c++)
     {
         // If the frame is less than the threshold, attenuate the frame
-        if (frameIn[c] > m_threshold) 
+        if (frameIn[c] < m_threshold) 
         {
             // Add output of the queue to the current input
             frameOut[c] = frameIn[c] * .2;
