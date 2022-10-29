@@ -18,5 +18,7 @@ public:
     CCompression(void);
 
     virtual ~CCompression(void);
+private:
+    double m_threshold;
 };
 

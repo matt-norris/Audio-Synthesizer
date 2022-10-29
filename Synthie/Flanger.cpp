@@ -43,7 +43,6 @@ void CFlanger::SetNote(CNote* note)
 void CFlanger::Process(double* frameIn, double* frameOut)
 {
 
-
         m_wrloc = (m_wrloc + 1) % QUEUESIZE;
 
         m_queue[m_wrloc] = frameIn[0];

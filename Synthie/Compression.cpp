@@ -34,6 +34,12 @@ void CCompression::SetNote(CNote* note)
             value.ChangeType(VT_R8);
             
         }
+        if (name == "threshold")
+        {
+            value.ChangeType(VT_R8);
+            m_threshold = value.dblVal;
+
+        }
 
     }
 }
@@ -43,14 +49,23 @@ void CCompression::Process(double* frameIn, double* frameOut)
     // Loop over the channels
     for (int c = 0; c < 2; c++)
     {
-        // Add output of the queue to the current input
-        frameOut[c] = frameIn[c];
+        // Works similar to Noise gate, if sound is above threshold lower it
+        if (frameIn[c] > m_threshold)
+        {
+            // Attenuate signal to 20% of original
+            frameOut[c] = frameIn[c] * 0.2;
+        }
+        else
+        {
+            // Add output of the queue to the current input
+            frameOut[c] = frameIn[c];
+        }
     }
 }
 
 CCompression::CCompression(void)
 {
-
+    m_threshold = 9000;
 }
 
 CCompression::~CCompression(void)
