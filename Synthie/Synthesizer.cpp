@@ -77,6 +77,10 @@ bool CSynthesizer::Generate(double* frame)
         {
             m_flanger.SetNote(note);
         }
+        else if (note->Instrument() == L"Compression")
+        {
+            m_compression.SetNote(note);
+        }
 
         // Configure the instrument object
         if (instrument != NULL)
@@ -144,12 +148,15 @@ bool CSynthesizer::Generate(double* frame)
         // Phase 3a: Effects
         //
 
-        double eframe[2];
-        m_flanger.Process(frame, eframe);
+        double fframe[2];
+        m_flanger.Process(frame, fframe);
+
+        double cframe[2];
+        m_compression.Process(fframe, cframe);
 
         for (int c = 0; c < 2; c++)
         {
-            frame[c] = eframe[c];
+            frame[c] = cframe[c];
         }
 
         // Move to the next instrument in the list

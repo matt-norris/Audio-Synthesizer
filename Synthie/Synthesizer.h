@@ -6,7 +6,7 @@
 #include <vector>
 #include "Note.h"
 #include "Flanger.h"
-
+#include "Compression.h"
 using namespace std;
 class CSynthesizer
 {
@@ -63,6 +63,7 @@ private:
     int m_measure;              //!< The current measure
     double m_beat;              //!< The current beat within the measure
     CFlanger m_flanger;
+    CCompression m_compression;
 };
 
 #pragma comment(lib, "msxml2.lib")
