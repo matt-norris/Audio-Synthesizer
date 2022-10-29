@@ -19,6 +19,7 @@ CSynthesizer::CSynthesizer(void)
     m_bpm = 120;
     m_secperbeat = 0.5;
     m_beatspermeasure = 4;
+    
 }
 
 CSynthesizer::~CSynthesizer(void)

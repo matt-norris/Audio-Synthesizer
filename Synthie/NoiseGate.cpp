@@ -54,7 +54,7 @@ void CNoiseGate::Process(double* frameIn, double* frameOut)
         // If the frame is less than the threshold, attenuate the frame
         if (frameIn[c] < m_threshold) 
         {
-            // Attenuate signal to 20% of original
+            // Attenuate signal
             frameOut[c] = frameIn[c] * m_attenuate;
         }
         else 
@@ -68,8 +68,8 @@ void CNoiseGate::Process(double* frameIn, double* frameOut)
 
 CNoiseGate::CNoiseGate(void)
 {
-    m_threshold = 9000;
-    m_attenuate = .2;
+    m_threshold = 1;
+    m_attenuate = 1;
 }
 
 CNoiseGate::~CNoiseGate(void)

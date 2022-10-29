@@ -36,6 +36,12 @@ void CFlanger::SetNote(CNote* note)
             SetWet(value.dblVal);
         }
 
+        if (name == "Delay")
+        {
+            value.ChangeType(VT_R8);
+            m_delay = value.dblVal;
+        }
+
     }
    
 }
@@ -45,20 +51,21 @@ void CFlanger::Process(double* frameIn, double* frameOut)
 
         m_wrloc = (m_wrloc + 1) % QUEUESIZE;
 
+
         m_queue[m_wrloc] = frameIn[0];
 
         int delaylength = int(m_delay * GetSampleRate() + 0.5);
-        m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;  
-
+        m_rdloc = (m_wrloc - delaylength + QUEUESIZE) % QUEUESIZE; 
+        
         // Loop over the channels
         for (int c = 0; c < 2; c++)
         {
             // Add output of the queue to the current input
-            frameOut[c] = frameIn[c] + m_queue[m_wrloc-1];
+            frameOut[c] = frameIn[c] + m_queue[m_rdloc];
         }
 
-    // Sweep delay for flanger effect
- 
+        // Sweep delay for flanger effect
+    
     
 
 }
@@ -70,6 +77,8 @@ CFlanger::CFlanger(void)
     m_wrloc = 0;
     m_rdloc = 1;
     m_x = .001;
+    m_delay = .02;
+    m_sweep = 0;
     
 }
 

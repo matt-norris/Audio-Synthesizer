@@ -58,7 +58,7 @@ void CCompression::Process(double* frameIn, double* frameOut)
         // Works similar to Noise gate, if sound is above threshold lower it
         if (frameIn[c] > m_threshold)
         {
-            // Attenuate signal to 20% of original
+            // Attenuate signal
             frameOut[c] = frameIn[c] * m_attenuate;
         }
         else
@@ -71,8 +71,8 @@ void CCompression::Process(double* frameIn, double* frameOut)
 
 CCompression::CCompression(void)
 {
-    m_threshold = 9000;
-    m_attenuate = .2;
+    m_threshold = 1;
+    m_attenuate = 1;
 }
 
 CCompression::~CCompression(void)
