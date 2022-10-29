@@ -20,5 +20,6 @@ public:
     virtual ~CCompression(void);
 private:
     double m_threshold;
+    double m_attenuate;
 };
 

@@ -40,6 +40,12 @@ void CCompression::SetNote(CNote* note)
             m_threshold = value.dblVal;
 
         }
+        if (name == "attenuate")
+        {
+            value.ChangeType(VT_R8);
+            m_attenuate = value.dblVal;
+
+        }
 
     }
 }
@@ -53,7 +59,7 @@ void CCompression::Process(double* frameIn, double* frameOut)
         if (frameIn[c] > m_threshold)
         {
             // Attenuate signal to 20% of original
-            frameOut[c] = frameIn[c] * 0.2;
+            frameOut[c] = frameIn[c] * m_attenuate;
         }
         else
         {
@@ -66,6 +72,7 @@ void CCompression::Process(double* frameIn, double* frameOut)
 CCompression::CCompression(void)
 {
     m_threshold = 9000;
+    m_attenuate = .2;
 }
 
 CCompression::~CCompression(void)

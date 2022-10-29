@@ -35,6 +35,12 @@ void CNoiseGate::SetNote(CNote* note)
             m_threshold = value.dblVal;
 
         }
+        if (name == "attenuate")
+        {
+            value.ChangeType(VT_R8);
+            m_attenuate = value.dblVal;
+
+        }
 
     }
 }
@@ -49,7 +55,7 @@ void CNoiseGate::Process(double* frameIn, double* frameOut)
         if (frameIn[c] < m_threshold) 
         {
             // Attenuate signal to 20% of original
-            frameOut[c] = frameIn[c] * 0.2;
+            frameOut[c] = frameIn[c] * m_attenuate;
         }
         else 
         {
@@ -63,6 +69,7 @@ void CNoiseGate::Process(double* frameIn, double* frameOut)
 CNoiseGate::CNoiseGate(void)
 {
     m_threshold = 9000;
+    m_attenuate = .2;
 }
 
 CNoiseGate::~CNoiseGate(void)

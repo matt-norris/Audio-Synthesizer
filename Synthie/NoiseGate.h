@@ -20,5 +20,6 @@ public:
     virtual ~CNoiseGate(void);
 private:
    double m_threshold;
+   double m_attenuate;
 };
 
