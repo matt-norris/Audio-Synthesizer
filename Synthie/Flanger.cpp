@@ -37,33 +37,52 @@ void CFlanger::SetNote(CNote* note)
         }
 
     }
+   
 }
 
 void CFlanger::Process(double* frameIn, double* frameOut)
 {
+
     // Loop over the channels
-    //for (int c = 0; c < 2; c++)
-    //{
-    //    m_queue[m_wrloc + c] = frameIn[c];
+    for (int c = 0; c < 2; c++)
+    {
+        m_wrloc = (m_wrloc + 1) % QUEUESIZE;
+
+        m_queue[m_wrloc] = frameIn[c];
+
+        int delaylength = int(m_delay * GetSampleRate() + 0.5);
+        m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
 
         // Add output of the queue to the current input
-    //    frameOut[c] = m_dry * frameIn[c] + m_wet * m_queue[m_rdloc + c];
-    //}
+        frameOut[c] = frameIn[c] + m_queue[m_rdloc];     
 
-    //m_wrloc = (m_wrloc + 2) % QSIZE;
-    //m_rdloc = (m_rdloc + 2) % QSIZE;
-    auto c = 0;
-    frameOut[c] = frameIn[c] * 1.0;
-    frameOut[c+1] = frameIn[c] * 1.0;
+    }
+    // Sweep delay for flanger effect
+    m_delay -= m_x;
+    if (m_delay <= .001) 
+    {
+        m_x = -.001;
+    }
+    if (m_delay >= .02)
+    {
+        m_x = .001;
+    }
+    
+
 }
 
 
 CFlanger::CFlanger(void)
 {
-
+    m_queue.resize(QUEUESIZE);
+    m_wrloc = 0;
+    m_rdloc = 0;
+    m_x = .001;
+    
 }
 
 CFlanger::~CFlanger(void)
 {
 
 }
+

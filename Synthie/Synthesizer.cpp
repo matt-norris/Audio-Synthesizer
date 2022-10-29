@@ -159,7 +159,7 @@ bool CSynthesizer::Generate(double* frame)
     //
     // Phase 4: Advance the time and beats
     //
-
+    
     // Time advances by the sample period
     m_time += GetSamplePeriod();
 
@@ -177,6 +177,7 @@ bool CSynthesizer::Generate(double* frame)
         m_beat -= m_beatspermeasure;
         m_measure++;
     }
+
 
     //
     // Phase 5: Determine when we are done
