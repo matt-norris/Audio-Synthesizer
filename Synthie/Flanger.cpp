@@ -68,10 +68,19 @@ void CFlanger::Process(double* frameIn, double* frameOut)
     double x = frameIn[0] + frameIn[1];
 
     m_queue[m_wrloc] = x;
-
+    m_delay -= m_x;
+    if (m_delay <= .005)
+    {
+        m_x = -m_x;
+    }
+    else if (m_delay >= .01)
+    {
+        m_x = -m_x;
+    }
+    
     int delaylength = int(m_delay * GetSampleRate() + 0.5);
     m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
-
+    
 
     double y = x + m_queue[m_rdloc];
     // Loop over the channels
@@ -95,7 +104,7 @@ void CFlanger::Process(double* frameIn, double* frameOut)
 void CFlanger::Clear()
 {
     m_on = false;
-
+    m_queue.clear();
 }
 
 CFlanger::CFlanger(void)
@@ -103,7 +112,8 @@ CFlanger::CFlanger(void)
     m_queue.resize(QUEUESIZE);
     m_wrloc = 0;
     m_rdloc = 1;
-    m_delay = .02;
+    m_x = .001;
+    m_delay = .01;
     m_on = false;
 
     

@@ -38,5 +38,6 @@ private:
     int m_wrloc;
     int m_rdloc;
     bool m_on;
+    double m_x;
 };
 
