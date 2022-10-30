@@ -35,7 +35,9 @@ private:
 
     int m_wrloc;
     int m_rdloc;
-    double m_x;
+    int m_x;
     int m_sweep;
+    bool m_decay;
+    bool m_grow;
 };
 

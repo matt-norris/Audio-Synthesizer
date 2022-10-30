@@ -43,19 +43,39 @@ void CFlanger::SetNote(CNote* note)
         }
 
     }
-   
+
 }
 
 void CFlanger::Process(double* frameIn, double* frameOut)
 {
 
-        m_wrloc = (m_wrloc + 1) % QUEUESIZE;
+    m_wrloc = (m_wrloc + 1) % QUEUESIZE;
 
 
-        m_queue[m_wrloc] = frameIn[0];
+    m_queue[m_wrloc] = frameIn[0];
 
-        int delaylength = int(m_delay * GetSampleRate() + 0.5);
-        m_rdloc = (m_wrloc - delaylength + QUEUESIZE) % QUEUESIZE; 
+    int delaylength = int(m_delay * GetSampleRate() + 0.5);
+    m_rdloc = (m_wrloc - delaylength + QUEUESIZE) % QUEUESIZE;
+    m_sweep = (440957 - m_x) % QUEUESIZE;
+    if (m_x >= -600 && m_decay == true)
+    {
+        if (m_x == -600)
+        {
+            m_decay = false;
+            m_grow = true;
+        }
+            m_x -= 1;
+     }
+    if (m_x <= 0 && m_grow == true)
+    {
+        if (m_x == -1)
+        {
+            m_decay = true;
+            m_grow = false;
+        }
+        m_x += 1;
+    }
+        
         
         // Loop over the channels
         for (int c = 0; c < 2; c++)
@@ -76,9 +96,11 @@ CFlanger::CFlanger(void)
     m_queue.resize(QUEUESIZE);
     m_wrloc = 0;
     m_rdloc = 1;
-    m_x = .001;
-    m_delay = .02;
+    m_x = 0;
+    m_delay = .001;
     m_sweep = 0;
+    m_decay = true;
+    m_grow = false;
     
 }
 
