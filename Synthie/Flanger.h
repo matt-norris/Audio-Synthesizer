@@ -16,6 +16,8 @@ public:
 
     virtual void Process(double* frameIn, double* frameOut);
 
+    void Clear();
+
     CFlanger(void);
 
     virtual ~CFlanger(void);
@@ -35,9 +37,6 @@ private:
 
     int m_wrloc;
     int m_rdloc;
-    int m_x;
-    int m_sweep;
-    bool m_decay;
-    bool m_grow;
+    bool m_on;
 };
 
