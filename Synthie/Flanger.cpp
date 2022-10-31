@@ -69,7 +69,8 @@ void CFlanger::Process(double* frameIn, double* frameOut)
 
     m_queue[m_wrloc] = x;
 
-   
+    m_delay = .01 * sin(.001 * 2 * PI * m_wrloc);
+
     int delaylength = int(m_delay * GetSampleRate() + 0.5);
     m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
     
