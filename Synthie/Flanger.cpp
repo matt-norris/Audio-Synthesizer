@@ -68,16 +68,8 @@ void CFlanger::Process(double* frameIn, double* frameOut)
     double x = frameIn[0] + frameIn[1];
 
     m_queue[m_wrloc] = x;
-    m_delay -= m_x;
-    if (m_delay <= .005)
-    {
-        m_x = -m_x;
-    }
-    else if (m_delay >= .01)
-    {
-        m_x = -m_x;
-    }
-    
+
+   
     int delaylength = int(m_delay * GetSampleRate() + 0.5);
     m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
     
@@ -113,7 +105,7 @@ CFlanger::CFlanger(void)
     m_wrloc = 0;
     m_rdloc = 1;
     m_x = .001;
-    m_delay = .01;
+    m_delay = .1;
     m_on = false;
 
     
