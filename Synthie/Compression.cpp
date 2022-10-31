@@ -58,8 +58,11 @@ void CCompression::Process(double* frameIn, double* frameOut)
         // Works similar to Noise gate, if sound is above threshold lower it
         if (frameIn[c] > m_threshold)
         {
-            // Attenuate signal
-            frameOut[c] = frameIn[c] * m_attenuate;
+            double gain = frameIn[c] - m_threshold;
+            // M_attenuate is the ratio level, this is a 4:1 ratio hard coded
+            gain = gain * .25;
+            // Output at at level 25% above input threshold
+            frameOut[c] = m_threshold + gain;
         }
         else
         {
