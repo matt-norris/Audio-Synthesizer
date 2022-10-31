@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<score bpm="145" beatspermeasure="3">
+	<instrument instrument="AdditiveSynth">
+
+		<note measure="1" beat="3" duration="1" note="B4"/>
+
+		<note measure="2" beat="1" duration="1" note="E5" />
+		<note measure="2" beat="2" duration="0.5" note="G5" />
+		<note measure="2" beat="3" duration="1" note="F#5" />
+
+		<note measure="3" beat="1" duration="2" note="E5" />
+		<note measure="3" beat="3" duration="1" note="B5" />
+		
+		<note measure="4" beat="1" duration="3" note="A5" />
+
+		<note measure="5" beat="1" duration="3" note="F#5" />
+
+		<note measure="6" beat="1" duration="1" note="E5" />
+		<note measure="6" beat="2" duration="0.5" note="G5" />
+		<note measure="6" beat="3" duration="1" note="F#5" />
+
+		<note measure="7" beat="1" duration="2" note="Eb5"/>
+		<note measure="7" beat="3" duration="1" note="F5"/>
+
+		<note measure="8" beat="1" duration="3" note="B4"/>
+
+		<note measure="9" beat="3" duration="1" note="B4"/>
+
+		<note measure="10" beat="1" duration="1" note="E5"/>
+		<note measure="10" beat="2" duration=".5" note="G5"/>
+		<note measure="10" beat="3" duration="1" note="F#5"/>
+
+		<note measure="11" beat="1" duration="2" note="E5"/>
+		<note measure="11" beat="3" duration="1" note="B5"/>
+
+		<note measure="12" beat="1" duration="2" note="D6"/>
+		<note measure="12" beat="3" duration="1" note="Db6"/>
+		
+		<note measure="13" beat="1" duration="2" note="C6"/>
+		<note measure="13" beat="3" duration="1" note="Ab5"/>
+
+		<note measure="14" beat="1" duration="1.5" note="C6"/>
+		<note measure="14" beat="2" duration=".5" note="Bb5"/>
+		
+		<note measure="15" beat="1" duration="2" note="Bb4"/>
+		<note measure="15" beat="3" duration="1" note="G5"/>
+
+		<note measure="16" beat="1" duration="3" note="E5"/>
+
+		<note measure="17" beat="3" duration="1" note="G5"/>
+		
+
+     	</instrument>
+</score>
