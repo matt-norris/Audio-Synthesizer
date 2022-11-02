@@ -4,6 +4,7 @@
 
 void CFlanger::SetNote(CNote* note)
 {
+  
     // Get a list of all attribute nodes and the
     // length of that list
     CComPtr<IXMLDOMNamedNodeMap> attributes;
@@ -69,8 +70,13 @@ void CFlanger::Process(double* frameIn, double* frameOut)
 
     m_queue[m_wrloc] = x;
 
-    m_delay = .01 * (1 + (50 * sin(100 * 2 * PI * m_wrloc)));
+    
+    m_delay = .005 + sin(2*PI*.01 - .005 * m_wrloc / 10);
 
+
+        
+    
+    
     int delaylength = int(m_delay * GetSampleRate() + 0.5);
     m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
     
@@ -82,7 +88,7 @@ void CFlanger::Process(double* frameIn, double* frameOut)
         if (m_on == true)
         {
             // Add output of the queue to the current input
-            frameOut[c] =  y;
+            frameOut[c] =  .5 * y;
         }
         else
         {
@@ -106,7 +112,7 @@ CFlanger::CFlanger(void)
     m_wrloc = 0;
     m_rdloc = 1;
     m_x = .001;
-    m_delay = .1;
+    m_delay = .01;
     m_on = false;
 
     
