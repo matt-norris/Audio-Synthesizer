@@ -3,97 +3,158 @@
 	<instrument instrument="AdditiveSynth">
 
 		<note measure="1" beat="3" duration="1" note="B4"/>
+		<note measure="1" beat="3" duration="1" note="B3"/>
 
 		<note measure="2" beat="1" duration="1" note="E5" />
+		<note measure="2" beat="1" duration="1" note="E4" />
 		<note measure="2" beat="2" duration="0.5" note="G5" />
+		<note measure="2" beat="2" duration="0.5" note="G6" />
 		<note measure="2" beat="3" duration="1" note="F#5" />
+		<note measure="2" beat="3" duration="1" note="F#4" />
 
 		<note measure="3" beat="1" duration="2" note="E5" />
+		<note measure="3" beat="1" duration="2" note="E4" />
 		<note measure="3" beat="3" duration="1" note="B5" />
+		<note measure="3" beat="3" duration="1" note="B4" />
 		
 		<note measure="4" beat="1" duration="3" note="A5" />
+		<note measure="4" beat="1" duration="3" note="A4" />
 
 		<note measure="5" beat="1" duration="3" note="F#5" />
+		<note measure="5" beat="1" duration="3" note="F#4" />
 
 		<note measure="6" beat="1" duration="1" note="E5" />
+		<note measure="6" beat="1" duration="1" note="E4" />
 		<note measure="6" beat="2" duration="0.5" note="G5" />
+		<note measure="6" beat="2" duration="0.5" note="G4" />
 		<note measure="6" beat="3" duration="1" note="F#5" />
+		<note measure="6" beat="3" duration="1" note="F#4" />
 
 		<note measure="7" beat="1" duration="2" note="Eb5"/>
+		<note measure="7" beat="1" duration="2" note="Eb4"/>
 		<note measure="7" beat="3" duration="1" note="F5"/>
+		<note measure="7" beat="3" duration="1" note="F4"/>
 
 		<note measure="8" beat="1" duration="3" note="B4"/>
+		<note measure="8" beat="1" duration="3" note="B3"/>
 
 		<note measure="9" beat="3" duration="1" note="B4"/>
+		<note measure="9" beat="3" duration="1" note="B3"/>
 
 		<note measure="10" beat="1" duration="1" note="E5"/>
+		<note measure="10" beat="1" duration="1" note="E4"/>
 		<note measure="10" beat="2" duration=".5" note="G5"/>
+		<note measure="10" beat="2" duration=".5" note="G4"/>
 		<note measure="10" beat="3" duration="1" note="F#5"/>
+		<note measure="10" beat="3" duration="1" note="F#4"/>
 
 		<note measure="11" beat="1" duration="2" note="E5"/>
+		<note measure="11" beat="1" duration="2" note="E4"/>
 		<note measure="11" beat="3" duration="1" note="B5"/>
+		<note measure="11" beat="3" duration="1" note="B4"/>
 
 		<note measure="12" beat="1" duration="2" note="D6"/>
+		<note measure="12" beat="1" duration="2" note="D5"/>
 		<note measure="12" beat="3" duration="1" note="Db6"/>
+		<note measure="12" beat="3" duration="1" note="Db5"/>
 		
 		<note measure="13" beat="1" duration="2" note="C6"/>
+		<note measure="13" beat="1" duration="2" note="C5"/>
 		<note measure="13" beat="3" duration="1" note="Ab5"/>
+		<note measure="13" beat="3" duration="1" note="Ab4"/>
 
 		<note measure="14" beat="1" duration="1.5" note="C6"/>
+		<note measure="14" beat="1" duration="1.5" note="C5"/>
 		<note measure="14" beat="2" duration=".5" note="B5"/>
+		<note measure="14" beat="2" duration=".5" note="B4"/>
 		<note measure="14" beat="3" duration="1" note="Bb5"/>
+		<note measure="14" beat="3" duration="1" note="Bb4"/>
 		
 		<note measure="15" beat="1" duration="2" note="Bb4"/>
+		<note measure="15" beat="1" duration="2" note="Bb3"/>
 		<note measure="15" beat="3" duration="1" note="G5"/>
+		<note measure="15" beat="3" duration="1" note="G4"/>
 
 		<note measure="16" beat="1" duration="2" note="E5"/>
+		<note measure="16" beat="1" duration="2" note="E4"/>
 
 		<note measure="17" beat="3" duration="1" note="G5"/>
+		<note measure="17" beat="3" duration="1" note="G4"/>
 		
 		<note measure="18" beat="1" duration="2" note="B5"/>
+		<note measure="18" beat="1" duration="2" note="B4"/>
 		<note measure="18" beat="3" duration="1" note="G5"/>
+		<note measure="18" beat="3" duration="1" note="G4"/>
 		
 		<note measure="19" beat="1" duration="2" note="B5"/>
+		<note measure="19" beat="1" duration="2" note="B4"/>
 		<note measure="19" beat="3" duration="1" note="G5"/>
+		<note measure="19" beat="3" duration="1" note="G4"/>
 
 		<note measure="20" beat="1" duration="2" note="C6"/>
+		<note measure="20" beat="1" duration="2" note="C5"/>
 		<note measure="20" beat="3" duration="1" note="B5"/>
+		<note measure="20" beat="3" duration="1" note="B4"/>
 
 		<note measure="21" beat="1" duration="2" note="Bb5"/>
+		<note measure="21" beat="1" duration="2" note="Bb4"/>
 		<note measure="21" beat="3" duration="1" note="Gb5"/>
+		<note measure="21" beat="3" duration="1" note="Gb4"/>
 
 		<note measure="22" beat="1" duration="1.5" note="C6"/>
+		<note measure="22" beat="1" duration="1.5" note="C5"/>
 		<note measure="22" beat="2" duration=".5" note="B5"/>
+		<note measure="22" beat="2" duration=".5" note="B4"/>
 		<note measure="22" beat="3" duration="1" note="Bb5"/>
+		<note measure="22" beat="3" duration="1" note="Bb4"/>
 
 		<note measure="23" beat="1" duration="2" note="Bb4"/>
+		<note measure="23" beat="1" duration="2" note="Bb3"/>
 		<note measure="23" beat="3" duration="1" note="B4"/>
+		<note measure="23" beat="3" duration="1" note="B3"/>
 
 		<note measure="24" beat="1" duration="3" note="B5"/>
+		<note measure="24" beat="1" duration="3" note="B4"/>
 
 		<note measure="25" beat="1" duration="2" note="B5"/>
+		<note measure="25" beat="1" duration="2" note="B4"/>
 		<note measure="25" beat="3" duration="1" note="G5"/>
+		<note measure="25" beat="3" duration="1" note="G4"/>
 
 		<note measure="26" beat="1" duration="2" note="B5"/>
+		<note measure="26" beat="1" duration="2" note="B4"/>
 		<note measure="26" beat="3" duration="1" note="G5"/>
+		<note measure="26" beat="3" duration="1" note="G4"/>
 		
 		<note measure="27" beat="1" duration="2" note="B5"/>
+		<note measure="27" beat="1" duration="2" note="B4"/>
 		<note measure="27" beat="3" duration="1" note="G5"/>
+		<note measure="27" beat="3" duration="1" note="G4"/>
 
 		<note measure="28" beat="1" duration="2" note="D6"/>
+		<note measure="28" beat="1" duration="2" note="D5"/>
 		<note measure="28" beat="3" duration="1" note="Db6"/>
+		<note measure="28" beat="3" duration="1" note="Db5"/>
 
 		<note measure="29" beat="1" duration="2" note="C6"/>
+		<note measure="29" beat="1" duration="2" note="C5"/>
 		<note measure="29" beat="3" duration="1" note="Ab5"/>
+		<note measure="29" beat="3" duration="1" note="Ab4"/>
 
 		<note measure="30" beat="1" duration="1.5" note="C5"/>
+		<note measure="30" beat="1" duration="1.5" note="C4"/>
 		<note measure="30" beat="2" duration=".5" note="B5"/>
+		<note measure="30" beat="2" duration=".5" note="B4"/>
 		<note measure="30" beat="3" duration="1" note="Bb5"/>
+		<note measure="30" beat="3" duration="1" note="Bb4"/>
 
 		<note measure="31" beat="1" duration="2" note="Bb4"/>
+		<note measure="31" beat="1" duration="2" note="Bb3"/>
 		<note measure="31" beat="3" duration="1" note="G5"/>
+		<note measure="31" beat="3" duration="1" note="G4"/>
 
 		<note measure="32" beat="1" duration="3" note="E5"/>
-
+		<note measure="32" beat="1" duration="3" note="E4"/>
+		
      	</instrument>
 </score>
