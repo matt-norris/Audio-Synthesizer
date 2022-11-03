@@ -70,11 +70,9 @@ void CFlanger::Process(double* frameIn, double* frameOut)
 
     m_queue[m_wrloc] = x;
 
-    
-    m_delay = .005 + sin(2*PI*.01 - .005 * m_wrloc / 10);
-
-
-        
+    // Calculate delay
+    m_delay = (.01 * sin(m_x * 2 * PI));
+    m_x += .5 / GetSampleRate();
     
  
     int delaylength = int(m_delay * GetSampleRate() + 0.5);
@@ -102,7 +100,7 @@ void CFlanger::Process(double* frameIn, double* frameOut)
 
 void CFlanger::Clear()
 {
-    m_on = false;
+  
     m_queue.clear();
 }
 
@@ -111,7 +109,7 @@ CFlanger::CFlanger(void)
     m_queue.resize(QUEUESIZE);
     m_wrloc = 0;
     m_rdloc = 1;
-    m_x = .001;
+    m_x = .005;
     m_delay = .01;
     m_on = false;
 

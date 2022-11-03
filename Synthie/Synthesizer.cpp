@@ -169,6 +169,7 @@ bool CSynthesizer::Generate(double* frame)
 
 
         // Move to the next instrument in the list
+      
         node = next;
        
     }
