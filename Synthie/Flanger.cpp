@@ -78,8 +78,7 @@ void CFlanger::Process(double* frameIn, double* frameOut)
             m_queue[m_wrloc] = x;
 
             // Calculate delay
-            m_delay = (.2 * sin(m_x * 2 * PI) + .05);
-            // FLANGING ALMOST DONE JUST STOP IT FROM GOING BELOW 0
+            m_delay = (.2 * sin(m_x * 2 * PI) + .2);
             m_x += .09 / GetSampleRate();
             if (m_delay <= 0)
                 m_delay = 1;
