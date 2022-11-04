@@ -53,6 +53,7 @@ void CFlanger::SetNote(CNote* note)
             else
             {
                 m_on = false;
+                m_queue.clear();
             }
             
         }
@@ -65,28 +66,30 @@ void CFlanger::SetNote(CNote* note)
 void CFlanger::Process(double* frameIn, double* frameOut)
 {
 
-    m_wrloc = (m_wrloc + 1) % QUEUESIZE;
-    double x = frameIn[0] + frameIn[1];
 
-    m_queue[m_wrloc] = x;
-
-    // Calculate delay
-    m_delay = (.01 * sin(m_x * 2 * PI));
-    m_x += .5 / GetSampleRate();
-    
- 
-    int delaylength = int(m_delay * GetSampleRate() + 0.5);
-    m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
-    
-
-    double y = x + m_queue[m_rdloc];
     // Loop over the channels
     for (int c = 0; c < 2; c++)
     {
         if (m_on == true)
         {
+            m_wrloc = (m_wrloc + 1) % QUEUESIZE;
+            double x = frameIn[0] + frameIn[1];
+
+            m_queue[m_wrloc] = x;
+
+            // Calculate delay
+            m_delay = (.2 * sin(m_x * 2 * PI) + .05);
+            m_x += .09 / GetSampleRate();
+            if (m_delay <= 0)
+                m_delay = 1;
+
+            int delaylength = int(m_delay * GetSampleRate() + 0.5);
+            m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
+
+
+            double y = x + m_queue[m_rdloc];
             // Add output of the queue to the current input
-            frameOut[c] =  .5 * y;
+            frameOut[c] =  .5*y;
         }
         else
         {
@@ -100,7 +103,10 @@ void CFlanger::Process(double* frameIn, double* frameOut)
 
 void CFlanger::Clear()
 {
-  
+    m_wrloc = 0;
+    m_rdloc = 1;
+    m_delay = .01;
+    m_x = 0;
     m_queue.clear();
 }
 

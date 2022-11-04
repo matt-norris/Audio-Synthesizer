@@ -169,7 +169,7 @@ bool CSynthesizer::Generate(double* frame)
 
 
         // Move to the next instrument in the list
-      
+       
         node = next;
        
     }
@@ -215,6 +215,7 @@ void CSynthesizer::Clear(void)
 void CSynthesizer::OpenScore(CString& filename)
 {
     Clear();
+    
 
     //
     // Create an XML document
