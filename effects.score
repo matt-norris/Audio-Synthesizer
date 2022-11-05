@@ -47,6 +47,47 @@
 		<note measure="2" beat="10" duration="2" note="E5" 
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		
+
+		<note measure="3" beat="6" duration="1" note="B5"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="3" beat="6" duration="1" note="B4"
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
+		<note measure="3" beat="6" duration="1" note="B3"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+
+		<note measure="3" beat="7" duration="1" note="E6" 
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0.09 0.06 0.05 0.02 0.01 0 0 0.006 0 0 0 0.002 0 0 0 0 0 0 0 0"/>
+		<note measure="3" beat="7" duration="1" note="E5" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="3" beat="7" duration="1" note="E4" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="3" beat="8" duration="0.5" note="G6" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="3" beat="8" duration="0.5" note="G5" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="3" beat="8" duration="0.5" note="G4" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="3" beat="9" duration="1" note="F#5" 
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0.09 0.06 0.05 0.02 0.01"/>
+		<note measure="3" beat="9" duration="1" note="F#4" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="3" beat="9" duration="1" note="F#3" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+
+		<note measure="3" beat="10" duration="2" note="E6" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="3" beat="10" duration="2" note="E5" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 	
 
 
@@ -64,7 +105,8 @@
      	</instrument>
 
 	<instrument instrument="Compression">
-		
+		<note measure="3" beat="1" threshold="1" reduc_ratio=".1"/>
+		<note measure="3" beat="8" threshold="1" reduc_ratio=".1"/>
      	</instrument>
 
 
