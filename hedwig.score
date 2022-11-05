@@ -3,14 +3,16 @@
 	<instrument instrument="AdditiveSynth">
 		
 		<note measure="1" beat="3" duration="1" note="B5"
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="1" beat="3" duration="1" note="B4"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="1" beat="3" duration="1" note="B3"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="2" beat="1" duration="1" note="E6" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="2" beat="1" duration="1" note="E5" 
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="2" beat="1" duration="1" note="E4" 
@@ -29,7 +31,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="3" beat="1" duration="2" note="E6" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="3" beat="1" duration="2" note="E5" 
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="3" beat="1" duration="2" note="E4" 
@@ -42,7 +45,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		
 		<note measure="4" beat="1" duration="3" note="A6" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="4" beat="1" duration="3" note="A5" 
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="4" beat="1" duration="3" note="A4" 
@@ -56,7 +60,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="6" beat="1" duration="1" note="E6" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="6" beat="1" duration="1" note="E5" 
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="6" beat="1" duration="1" note="E4" 
@@ -75,7 +80,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="7" beat="1" duration="2" note="Eb6"
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="7" beat="1" duration="2" note="Eb5"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="7" beat="1" duration="2" note="Eb4"
@@ -88,21 +94,24 @@
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="8" beat="1" duration="3" note="B5"
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="8" beat="1" duration="3" note="B4"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="8" beat="1" duration="3" note="B3"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="9" beat="3" duration="1" note="B5"
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="9" beat="3" duration="1" note="B4"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="9" beat="3" duration="1" note="B3"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="10" beat="1" duration="1" note="E6"
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="10" beat="1" duration="1" note="E5"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="10" beat="1" duration="1" note="E4"
@@ -121,7 +130,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="11" beat="1" duration="2" note="E6"
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="11" beat="1" duration="2" note="E5"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="11" beat="1" duration="2" note="E4"
@@ -134,7 +144,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="12" beat="1" duration="2" note="D7"
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="12" beat="1" duration="2" note="D6"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="12" beat="1" duration="2" note="D5"
@@ -147,7 +158,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		
 		<note measure="13" beat="1" duration="2" note="C7"
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="13" beat="1" duration="2" note="C6"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="13" beat="1" duration="2" note="C5"
@@ -160,7 +172,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="14" beat="1" duration="1.5" note="C7"
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="14" beat="1" duration="1.5" note="C6"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="14" beat="1" duration="1.5" note="C5"
@@ -179,7 +192,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		
 		<note measure="15" beat="1" duration="2" note="Bb5"
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="15" beat="1" duration="2" note="Bb4"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="15" beat="1" duration="2" note="Bb3"
@@ -192,21 +206,24 @@
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="16" beat="1" duration="2" note="E6"
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="16" beat="1" duration="2" note="E5"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="16" beat="1" duration="2" note="E4"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="17" beat="3" duration="1" note="G6"
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="17" beat="3" duration="1" note="G5"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="17" beat="3" duration="1" note="G4"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		
 		<note measure="18" beat="1" duration="2" note="B6"
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="18" beat="1" duration="2" note="B5"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="18" beat="1" duration="2" note="B4"
@@ -219,7 +236,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		
 		<note measure="19" beat="1" duration="2" note="B6"
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="19" beat="1" duration="2" note="B5"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="19" beat="1" duration="2" note="B4"
@@ -232,7 +250,8 @@
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="20" beat="1" duration="2" note="C7"
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="20" beat="1" duration="2" note="C6"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="20" beat="1" duration="2" note="C5"
@@ -242,163 +261,175 @@
 		<note measure="20" beat="3" duration="1" note="B5"
 		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="20" beat="3" duration="1" note="B4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="21" beat="1" duration="2" note="Bb6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="21" beat="1" duration="2" note="Bb5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="21" beat="1" duration="2" note="Bb4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="21" beat="3" duration="1" note="Gb6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="21" beat="3" duration="1" note="Gb5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="21" beat="3" duration="1" note="Gb4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="22" beat="1" duration="1.5" note="C7"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="22" beat="1" duration="1.5" note="C6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="22" beat="1" duration="1.5" note="C5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="22" beat="2" duration=".5" note="B6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="22" beat="2" duration=".5" note="B5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="22" beat="2" duration=".5" note="B4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="22" beat="3" duration="1" note="Bb6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="22" beat="3" duration="1" note="Bb5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="22" beat="3" duration="1" note="Bb4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="23" beat="1" duration="2" note="Bb5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="23" beat="1" duration="2" note="Bb4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="23" beat="1" duration="2" note="Bb3"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="23" beat="3" duration="1" note="B5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="23" beat="3" duration="1" note="B4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="23" beat="3" duration="1" note="B3"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="24" beat="1" duration="3" note="B6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="24" beat="1" duration="3" note="B5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="24" beat="1" duration="3" note="B4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="25" beat="1" duration="2" note="B6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="25" beat="1" duration="2" note="B5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="25" beat="1" duration="2" note="B4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="25" beat="3" duration="1" note="G6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="25" beat="3" duration="1" note="G5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="25" beat="3" duration="1" note="G4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="26" beat="1" duration="2" note="B6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="26" beat="1" duration="2" note="B5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="26" beat="1" duration="2" note="B4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="26" beat="3" duration="1" note="G6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="26" beat="3" duration="1" note="G5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="26" beat="3" duration="1" note="G4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		
 		<note measure="27" beat="1" duration="2" note="B6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="27" beat="1" duration="2" note="B5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="27" beat="1" duration="2" note="B4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="27" beat="3" duration="1" note="G6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="27" beat="3" duration="1" note="G5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="27" beat="3" duration="1" note="G4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="28" beat="1" duration="2" note="D7"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="28" beat="1" duration="2" note="D6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="28" beat="1" duration="2" note="D5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="28" beat="3" duration="1" note="Db7"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="28" beat="3" duration="1" note="Db6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="28" beat="3" duration="1" note="Db5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="29" beat="1" duration="2" note="C7"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="29" beat="1" duration="2" note="C6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="29" beat="1" duration="2" note="C5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="29" beat="3" duration="1" note="Ab6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="29" beat="3" duration="1" note="Ab5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="29" beat="3" duration="1" note="Ab4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
 		<note measure="30" beat="1" duration="1.5" note="C6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="30" beat="1" duration="1.5" note="C5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="30" beat="1" duration="1.5" note="C4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="30" beat="2" duration=".5" note="B6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="30" beat="2" duration=".5" note="B5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="30" beat="2" duration=".5" note="B4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="30" beat="3" duration="1" note="Bb6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="30" beat="3" duration="1" note="Bb5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="30" beat="3" duration="1" note="Bb4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="31" beat="1" duration="2" note="Bb5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="31" beat="1" duration="2" note="Bb4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="31" beat="1" duration="2" note="Bb3"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="31" beat="3" duration="1" note="G6"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="31" beat="3" duration="1" note="G5"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 		<note measure="31" beat="3" duration="1" note="G4"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 
 		<note measure="32" beat="1" duration="3" note="E6"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
 		<note measure="32" beat="1" duration="3" note="E5"
-harmonics=".1 .09 .08 .07 .06 .05"/>
+		harmonics=".1 .09 .08 .07 .06 .05"/>
 		<note measure="32" beat="1" duration="3" note="E4"
-harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 				
      	</instrument>
 </score>
