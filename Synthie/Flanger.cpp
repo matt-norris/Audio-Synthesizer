@@ -31,16 +31,16 @@ void CFlanger::SetNote(CNote* note)
         CComVariant value;
         attrib->get_nodeValue(&value);
 
-        if (name == "wet")
-        {
-            value.ChangeType(VT_R8);
-            SetWet(value.dblVal);
-        }
-
         if (name == "Delay")
         {
             value.ChangeType(VT_R8);
-            m_delay = value.dblVal;
+            m_sample_delay = value.dblVal;
+        }
+
+        if (name == "lfo_freq")
+        {
+            value.ChangeType(VT_R8);
+            m_freq = value.dblVal;
         }
 
         if (name == "On") 
@@ -53,7 +53,6 @@ void CFlanger::SetNote(CNote* note)
             else
             {
                 m_on = false;
-                m_queue.clear();
             }
             
         }
@@ -78,12 +77,11 @@ void CFlanger::Process(double* frameIn, double* frameOut)
             m_queue[m_wrloc] = x;
 
             // Calculate delay
-            m_delay = (.2 * sin(m_x * 2 * PI) + .2);
-            m_x += .09 / GetSampleRate();
-            if (m_delay <= 0)
-                m_delay = 1;
+            m_var_delay = (m_sample_delay * sin(m_x * 2 * PI) + m_sample_delay);
+            m_x += m_freq / GetSampleRate();
 
-            int delaylength = int(m_delay * GetSampleRate() + 0.5);
+
+            int delaylength = int(m_var_delay * GetSampleRate() + 0.5);
             m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
 
 
@@ -105,7 +103,7 @@ void CFlanger::Clear()
 {
     m_wrloc = 0;
     m_rdloc = 1;
-    m_delay = .01;
+    m_var_delay = .01;
     m_x = 0;
     m_queue.clear();
 }
@@ -116,9 +114,10 @@ CFlanger::CFlanger(void)
     m_wrloc = 0;
     m_rdloc = 1;
     m_x = .005;
-    m_delay = .01;
+    m_var_delay = .01;
     m_on = false;
-
+    m_freq = .09;
+    m_sample_delay = .2;
     
 }
 

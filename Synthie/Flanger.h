@@ -29,8 +29,8 @@ public:
 private:
     double m_wet;
     const int QUEUESIZE = int(GetSampleRate() * 10);
-    double m_delay = .25;
-
+    double m_var_delay = .25;
+    double m_sample_delay;
     // Create queue to hold delayed samples
     std::vector<double> m_queue;
 
@@ -39,5 +39,6 @@ private:
     int m_rdloc;
     bool m_on;
     double m_x;
+    double m_freq;
 };
 

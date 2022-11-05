@@ -40,10 +40,10 @@ void CCompression::SetNote(CNote* note)
             m_threshold = value.dblVal;
 
         }
-        if (name == "attenuate")
+        if (name == "reduc_ratio")
         {
             value.ChangeType(VT_R8);
-            m_attenuate = value.dblVal;
+            m_ratio = value.dblVal;
 
         }
 
@@ -60,7 +60,7 @@ void CCompression::Process(double* frameIn, double* frameOut)
         {
             double gain = frameIn[c] - m_threshold;
             // M_attenuate is the ratio level, this is a 4:1 ratio hard coded
-            gain = gain * .25;
+            gain = gain * m_ratio;
             // Output at at level 25% above input threshold
             frameOut[c] = m_threshold + gain;
         }
@@ -75,7 +75,7 @@ void CCompression::Process(double* frameIn, double* frameOut)
 CCompression::CCompression(void)
 {
     m_threshold = 1;
-    m_attenuate = 1;
+    m_ratio = .25;
 }
 
 CCompression::~CCompression(void)
