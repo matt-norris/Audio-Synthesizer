@@ -1,16 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<score bpm="145" beatspermeasure="10">
+<score bpm="145" beatspermeasure="3">
 	<instrument instrument="AdditiveSynth">
 		
-
-		<note measure="1" beat="1" duration="8" note="E6" 
+		<note measure="1" beat="3" duration="1" note="B5"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="1" beat="3" duration="1" note="B4"
 		harmonics=".1 .09 .08 .07 .06 .05"
-		vibrato="1.0" vib_depth="15" vib_freq="6"/>
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
+		<note measure="1" beat="3" duration="1" note="B3"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
 
-
-		<note measure="2" beat="1" duration="8" note="E6" 
+		<note measure="2" beat="1" duration="1" note="E6" 
 		harmonics=".1 .09 .08 .07 .06 .05"
-		/>
-				
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0.09 0.06 0.05 0.02 0.01 0 0 0.006 0 0 0 0.002 0 0 0 0 0 0 0 0"/>
+		<note measure="2" beat="1" duration="1" note="E5" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="2" beat="1" duration="1" note="E4" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="2" beat="2" duration="0.5" note="G6" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="2" beat="2" duration="0.5" note="G5" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="2" beat="2" duration="0.5" note="G4" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="2" beat="3" duration="1" note="F#5" 
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0.09 0.06 0.05 0.02 0.01"/>
+		<note measure="2" beat="3" duration="1" note="F#4" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="2" beat="3" duration="1" note="F#3" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+
+		<note measure="3" beat="1" duration="2" note="E6" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="3" beat="1" duration="2" note="E5" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="3" beat="1" duration="2" note="E4" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="3" beat="3" duration="1" note="B6" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="3" beat="3" duration="1" note="B5" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="3" beat="3" duration="1" note="B4" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		
+		<note measure="4" beat="1" duration="3" note="A6" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="4" beat="1" duration="3" note="A5" 
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0.09 0.06 0.05 0.02 0.01"/>
+		<note measure="4" beat="1" duration="3" note="A4" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+
+		<note measure="5" beat="1" duration="3" note="F#6" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="5" beat="1" duration="3" note="F#5" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="5" beat="1" duration="3" note="F#4"
+		vibrato="1.0" vib_depth="10" vib_freq="6" 
+		crossfade="0.07 0.04 0.03 0.02 0.01"
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+
+		<note measure="6" beat="1" duration="1" note="E6" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="6" beat="1" duration="1" note="E5" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="6" beat="1" duration="1" note="E4" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="6" beat="2" duration="0.5" note="G6" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="6" beat="2" duration="0.5" note="G5" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		crossfade="0.09 0.06 0.05 0.02 0.01 0 0 0.006 0 0 0 0.002 0 0 0 0 0 0 0 0"/>
+		<note measure="6" beat="2" duration="0.5" note="G4" 
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="6" beat="3" duration="1" note="F#6" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="6" beat="3" duration="1" note="F#5" 
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="6" beat="3" duration="1" note="F#4" 
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+
+		<note measure="7" beat="1" duration="2" note="Eb6"
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="7" beat="1" duration="2" note="Eb5"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="7" beat="1" duration="2" note="Eb4"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="7" beat="3" duration="1" note="F6"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="7" beat="3" duration="1" note="F5"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05"
+		crossfade="0.034 0.02 0.01 0.01 0.01"/>
+		<note measure="7" beat="3" duration="1" note="F4"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+
+		<note measure="8" beat="1" duration="3" note="B5"
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="8" beat="1" duration="3" note="B4"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="8" beat="1" duration="3" note="B3"
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+
+		<note measure="9" beat="3" duration="1" note="B5"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="9" beat="3" duration="1" note="B4"
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="9" beat="3" duration="1" note="B3"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+
+		<note measure="10" beat="1" duration="1" note="E6"
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="10" beat="1" duration="1" note="E5"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="10" beat="1" duration="1" note="E4"
+		harmonics=".1 .09 .08 .07 .06 .05"
+		crossfade="0.09 0.06 0.05 0.02 0.01"/>
+		<note measure="10" beat="2" duration=".5" note="G6"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="10" beat="2" duration=".5" note="G5"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="10" beat="2" duration=".5" note="G4"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="10" beat="3" duration="1" note="F#6"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+		<note measure="10" beat="3" duration="1" note="F#5"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+		<note measure="10" beat="3" duration="1" note="F#4"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05"/>
+
      	</instrument>
 </score>
