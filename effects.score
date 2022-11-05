@@ -105,8 +105,8 @@
      	</instrument>
 
 	<instrument instrument="Compression">
-		<note measure="3" beat="1" threshold="1" reduc_ratio=".1"/>
-		<note measure="3" beat="8" threshold="1" reduc_ratio=".1"/>
+		<note measure="3" beat="1" threshold=".25" reduc_ratio=".25"/>
+		<note measure="3" beat="8" threshold="10"/>
      	</instrument>
 
 
