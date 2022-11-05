@@ -932,14 +932,10 @@
      	</instrument>
 
 	<instrument instrument="Flanger">
-		<note measure="1" beat="3" duration="1" note="B5" On="1.0" Delay=".2" lfo_freq=".1"/>
-		<note measure="1" beat="3" duration="1" note="B4"  On="1.0" Delay=".2" lfo_freq=".1"/>
-		<note measure="1" beat="3" duration="1" note="B3"  On="1.0" Delay=".2" lfo_freq=".1"/>
-		<note measure="2" beat="1" On="0.0"/>
-		<note measure="4" beat="1" duration="3" note="A6" On="1.0" Delay=".2" lfo_freq=".1"/>
-		<note measure="4" beat="1" duration="3" note="A5" On="1.0" Delay=".2" lfo_freq=".1" />
-		<note measure="4" beat="1" duration="3" note="A4" On="1.0" Delay=".2" lfo_freq=".1"/>
-		<note measure="5" beat="1" On="0.0"/>
+		<note measure="1" beat="1" On="1.0" Delay=".2" lfo_freq=".1"/>
+		<note measure="1" beat="3" On="0.0" Delay=".2" lfo_freq=".1"/>
+
+		
      	</instrument>
 
 	<instrument instrument="NoiseGate">

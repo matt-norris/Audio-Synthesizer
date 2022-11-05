@@ -5,10 +5,8 @@
 void CFlanger::SetNote(CNote* note)
 {
   
-    m_wrloc = 0;
-    m_rdloc = 1;
-    m_x = 0;
-    Clear();
+ 
+  
     // Get a list of all attribute nodes and the
     // length of that list
     CComPtr<IXMLDOMNamedNodeMap> attributes;
@@ -73,23 +71,23 @@ void CFlanger::Process(double* frameIn, double* frameOut)
     // Loop over the channels
     for (int c = 0; c < 2; c++)
     {
+        m_wrloc = (m_wrloc + 1) % QUEUESIZE;
+        double x = frameIn[0] + frameIn[1];
+
+        m_queue[m_wrloc] = x;
+
+        // Calculate delay
+        m_var_delay = (m_sample_delay * sin(m_x * 2 * PI) + m_sample_delay);
+        m_x += m_freq / GetSampleRate();
+
+
+        int delaylength = int(m_var_delay * GetSampleRate() + 0.5);
+        m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
+
+
+        double y = x + m_queue[m_rdloc];
         if (m_on == true)
         {
-            m_wrloc = (m_wrloc + 1) % QUEUESIZE;
-            double x = frameIn[0] + frameIn[1];
-
-            m_queue[m_wrloc] = x;
-
-            // Calculate delay
-            m_var_delay = (m_sample_delay * sin(m_x * 2 * PI) + m_sample_delay);
-            m_x += m_freq / GetSampleRate();
-
-
-            int delaylength = int(m_var_delay * GetSampleRate() + 0.5);
-            m_rdloc = (m_wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
-
-
-            double y = x + m_queue[m_rdloc];
             // Add output of the queue to the current input
             frameOut[c] =  .5*y;
         }
