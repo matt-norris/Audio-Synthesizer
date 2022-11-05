@@ -1,50 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<score bpm="145" beatspermeasure="3">
+<score bpm="145" beatspermeasure="10">
 	<instrument instrument="AdditiveSynth">
 		
 
-		<note measure="1" beat="1" duration="1" note="E6" 
+		<note measure="1" beat="1" duration="8" note="E6" 
 		harmonics=".1 .09 .08 .07 .06 .05"
-		vibrato="1.0" vib_depth="10" vib_freq="6"/>
-		<note measure="1" beat="1" duration="1" note="E5" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
-		<note measure="1" beat="1" duration="1" note="E4" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
-		<note measure="1" beat="2" duration="0.5" note="G6" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
-		<note measure="1" beat="2" duration="0.5" note="G5" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
-		<note measure="1" beat="2" duration="0.5" note="G4" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
-		<note measure="1" beat="3" duration="1" note="F#5" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
-		<note measure="1" beat="3" duration="1" note="F#4" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
-		<note measure="1" beat="3" duration="1" note="F#3" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
+		vibrato="1.0" vib_depth="15" vib_freq="6"/>
 
 
-		<note measure="2" beat="1" duration="1" note="E6" 
+		<note measure="2" beat="1" duration="8" note="E6" 
 		harmonics=".1 .09 .08 .07 .06 .05"
 		/>
-		<note measure="2" beat="1" duration="1" note="E5" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
-		<note measure="2" beat="1" duration="1" note="E4" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
-		<note measure="2" beat="2" duration="0.5" note="G6" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
-		<note measure="2" beat="2" duration="0.5" note="G5" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
-		<note measure="2" beat="2" duration="0.5" note="G4" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
-		<note measure="2" beat="3" duration="1" note="F#5" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
-		<note measure="2" beat="3" duration="1" note="F#4" 
-		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
-		<note measure="2" beat="3" duration="1" note="F#3" 
-		harmonics=".1 .09 .08 .07 .06 .05"/>
-
-
 				
      	</instrument>
 </score>
