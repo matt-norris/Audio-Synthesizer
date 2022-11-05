@@ -5,6 +5,10 @@
 void CFlanger::SetNote(CNote* note)
 {
   
+    m_wrloc = 0;
+    m_rdloc = 1;
+    m_x = 0;
+    Clear();
     // Get a list of all attribute nodes and the
     // length of that list
     CComPtr<IXMLDOMNamedNodeMap> attributes;
@@ -101,11 +105,11 @@ void CFlanger::Process(double* frameIn, double* frameOut)
 
 void CFlanger::Clear()
 {
-    m_wrloc = 0;
-    m_rdloc = 1;
-    m_var_delay = .01;
-    m_x = 0;
-    m_queue.clear();
+    m_on = false;
+    for (int i =0; i < m_queue.size(); i++) 
+    {
+       m_queue[i] = 0;
+    }
 }
 
 CFlanger::CFlanger(void)
