@@ -2,7 +2,7 @@
 <score bpm="145" beatspermeasure="10">
 	<instrument instrument="AdditiveSynth">
 		
-		<note measure="1" beat="3" duration="10" note="C3"
+		<note measure="1" beat="1" duration="8" note="C3"
 		harmonics=".08 .09 .08 .07"
 		/>
 
@@ -94,7 +94,7 @@
 
 	</instrument>
 	<instrument instrument="Flanger">
-		<note measure="1" beat="3" duration="1" note="B5" On="1.0" Delay=".2" lfo_freq=".1"/>
+		<note measure="1" beat="1" duration="1" note="B5" On="1.0" Delay=".2" lfo_freq=".1"/>
 		<note measure="2" beat="1" On="0.0"/>
 
      	</instrument>
@@ -105,7 +105,7 @@
      	</instrument>
 
 	<instrument instrument="Compression">
-		<note measure="3" beat="1" threshold=".25" reduc_ratio=".25"/>
+		<note measure="3" beat="1" threshold=".1" reduc_ratio=".25"/>
 		<note measure="3" beat="8" threshold="10"/>
      	</instrument>
 
