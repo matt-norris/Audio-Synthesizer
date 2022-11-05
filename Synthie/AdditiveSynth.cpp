@@ -307,7 +307,8 @@ void CAdditiveSynth::SetNote(CNote* note)
     note->Node()->get_attributes(&attributes);
     long len;
     attributes->get_length(&len);
-
+    m_vibrato_on = false;
+    m_crossfading = false;
     // Loop over the list of attributes
     for (int i = 0; i < len; i++)
     {
