@@ -6,6 +6,17 @@
 		harmonics=".08 .09 .08 .07"
 		/>
 
+		<note measure="2" beat="3" duration="1" note="B5"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		crossfade="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+		<note measure="2" beat="3" duration="1" note="B4"
+		harmonics=".1 .09 .08 .07 .06 .05"
+		vibrato="1.0" vib_depth="10" vib_freq="6"/>
+		<note measure="2" beat="3" duration="1" note="B3"
+		vibrato="1.0" vib_depth="10" vib_freq="6"
+		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"/>
+
 		<note measure="2" beat="6" duration="1" note="B5"
 		harmonics=".1 .09 .08 .07 .06 .05 .04 .03 .02 .01 .009 .008 .007 .006 .005 .004 .003 .002 .001 .0009"
 		vibrato="1.0" vib_depth="10" vib_freq="6"
@@ -106,7 +117,7 @@
 
 	<instrument instrument="Compression">
 		<note measure="3" beat="1" threshold=".1" reduc_ratio=".25"/>
-		<note measure="3" beat="8" threshold="10"/>
+		<note measure="3" beat="5" threshold="10"/>
      	</instrument>
 
 
